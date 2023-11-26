@@ -117,7 +117,7 @@ const Header = ({ cart, setcart, user }) => {
                                 />
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlInput13" class="form-label">Name</label>
+                                <label for="exampleFormControlInput13" class="form-label">City</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput13"
                                     placeholder="Enter Address" value={userdata.city}
                                     onChange={(event) => { setuserdata({ ...userdata, city: event.target.value }) }}
