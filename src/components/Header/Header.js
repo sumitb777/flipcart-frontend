@@ -182,12 +182,12 @@ const Header = ({ cart, setcart, user }) => {
 
 
 
-            <div className='col-12 bg-primary d-flex '   >
-                <div className=" d-flex col-12 col-md-11 m-auto gap-md-2  my-0 py-0 px-md-5 d-flex    
+            <div className='col-12 bg-primary d-flex  '   >
+                <div className=" d-flex col-12 col-md-11 m-auto gap-md-2 gap-0  my-0 py-0 px-md-5 d-flex    
                                 bg-primary bg-body-tertiary justify-content-md-between   align-items-center  ">
 
                     {/* input */}
-                    <div className=' d-flex col-md-7 col-6 justify-content-center align-items-center'>
+                    <div className=' d-flex col-md-7 col-12 justify-md-content-center align-items-center'>
                         <div className="btn ms-md-5"
                             onClick={() => Navigate(`/`)} >
                             <img className='header-logo ms-md-1   ' alt='' src='/images/flipkart-plus.png' />
@@ -196,7 +196,7 @@ const Header = ({ cart, setcart, user }) => {
                                 <img src='/images/plus.png' alt='' />
                             </span>
                         </div>
-                        <form className="d-flex bg-white col-md-10 search h-100  py-2 
+                        <form className="d-flex bg-white col-md-10 col-6  search h-100  py-2 
                          rounded-0 position-relative  "
 
                         >
@@ -223,9 +223,14 @@ const Header = ({ cart, setcart, user }) => {
                             </ul>
 
                         </form>
+                        <div className='col-2 d-md-none '>
+                            <button class="btn btn-primary  text-white  " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight">More</button>
+                        </div>
                     </div>
 
-                    <div className='col-5 d-flex justify-content-md-between justify-content-start align-items-center'>
+                    <div className='col-md-5  d-none  d-md-flex justify-content-md-between 
+                    justify-content-start align-items-center'>
                         {/* <div className=' d-flex gap-md-5   '></div> */}
 
                         {user == null ? <div className='d-flex '>
@@ -234,6 +239,7 @@ const Header = ({ cart, setcart, user }) => {
                                 data-bs-toggle="modal" data-bs-target="#exampleModal2">Log In</p>
                             <p className=' text-white fs-6 mt-3 btn fw-bold ms-md-4 ms-0  '
                                 data-bs-toggle="modal" data-bs-target="#exampleModal">Create Account </p>
+
 
                         </div> :
                             <div className=' d-flex '>
@@ -259,6 +265,56 @@ const Header = ({ cart, setcart, user }) => {
                         </div>
 
                     </div>
+
+                    <div class="offcanvas offcanvas-end bg-secondary  " tabindex="-1" id="offcanvasRight"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header text-white m-0 ">
+                            {/* <p id="offcanvasRightLabel"></p> */}
+                            <button type="button" class="btn  text-white" data-bs-dismiss="offcanvas" aria-label="Close">close </button>
+                        </div>
+                        <div class="offcanvas-body text-white mt-1 p-0 ">
+                            {/* canvas body */}
+
+
+                            <div className=' '>
+                                {/* <div className=' d-flex gap-md-5   '></div> */}
+
+                                {user == null ? <div className='text-white '>
+
+                                    <p className='text-white  fs-6   btn  fw-bold  ms-0 '
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal2">Log In</p>
+                                    <p className='text-white  fs-6  btn fw-bold  ms-0  '
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal">Create Account </p>
+
+
+                                </div> :
+                                    <div className='text-white '>
+
+                                        <p className='text-white  fs-md-5 fw-bold   btn  ms-0 fw-bold ' >
+                                            <img className='userlogo  rounded-1' src='/images/user.svg' alt='' />
+                                            {user.username}</p>
+                                        <p className="login btn text-white  ms-md-4 h-50  fw-bold  "
+                                            onClick={handellogout}>Logout</p>
+
+                                    </div>
+                                }
+
+
+                                <div>
+                                    <p className='btn text-white fs-md-5 fw-bold px-0 d-flex   '
+                                        onClick={() => { Navigate(`/cart/`) }}  ><span className="badge text-bg-secondary">{cart.length}</span>
+                                        <img alt='' className='d-none d-md-block ' src='/images/cart3.svg' />
+                                        Cart
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            {/* canvas body end */}
+                        </div>
+                    </div>
+
 
                 </div>
             </div>

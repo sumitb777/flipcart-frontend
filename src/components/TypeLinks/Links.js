@@ -9,7 +9,7 @@ const Links = () => {
 
   const gettypesm = async () => {
     try {
-      let url = `http://localhost:3030/get-product-by-type/${type}`;
+      let url = `https://flipcart-backend.onrender.com/${type}`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypedata(data.result)
