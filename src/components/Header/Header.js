@@ -12,7 +12,7 @@ const Header = ({ cart, setcart, user }) => {
     const [userdata, setuserdata] = useState({
         username: '',
         mobile: '',
-        address: '',
+        city: '',
         password: ''
 
     })
@@ -98,7 +98,7 @@ const Header = ({ cart, setcart, user }) => {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -119,8 +119,8 @@ const Header = ({ cart, setcart, user }) => {
                             <div class="mb-3">
                                 <label for="exampleFormControlInput13" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput13"
-                                    placeholder="Enter Address" value={userdata.address}
-                                    onChange={(event) => { setuserdata({ ...userdata, address: event.target.value }) }}
+                                    placeholder="Enter Address" value={userdata.city}
+                                    onChange={(event) => { setuserdata({ ...userdata, city: event.target.value }) }}
                                 />
                             </div>
                             <div class="col-auto">
