@@ -266,11 +266,15 @@ const Header = ({ cart, setcart, user }) => {
 
                     </div>
 
+
+
+                    {/* offcanvas */}
                     <div class="offcanvas offcanvas-end bg-secondary  " tabindex="-1" id="offcanvasRight"
                         aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header text-white m-0 ">
                             {/* <p id="offcanvasRightLabel"></p> */}
-                            <button type="button" class="btn  text-white" data-bs-dismiss="offcanvas" aria-label="Close">close </button>
+                            <button type="button" class="btn  text-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close">close </button>
                         </div>
                         <div class="offcanvas-body text-white mt-1 p-0 ">
                             {/* canvas body */}
@@ -330,25 +334,25 @@ const Header = ({ cart, setcart, user }) => {
                         </div>
 
                     </div>
-                    <div className=" border-0"
+                    <div className=" border-0 btn"
                         onClick={() => { Navigate(`link/mobile`) }}>
                         <img className="card-img-top citop" alt="..." src='/images/link2.webp' />
                         <div className="card-body p-0 ">
                             <p className="" aria-current="page" href="">mobile</p>
                         </div>
                     </div>
-                    <div className=" border-0"
+                    <div className=" border-0 btn"
                         onClick={() => Navigate(`link/computer`)} >
                         <img className="card-img-top citop" src='/images/link-1.jpeg' />
                         <div className="card-body p-0  mt-2">
                             <p className="" aria-current="page" href="">Computer</p>
                         </div>
                     </div>
-                    <div className=" border-0"
+                    <div className=" border-0 btn"
                         onClick={() => Navigate(`link/mobile`)}>
                         <img className="card-img-top citop" alt="..." src='/images/link2.webp' />
                         <div className="card-body  p-0  ">
-                            <p className="" aria-current="page" href="">Active</p>
+                            <p className="" aria-current="page" href="">Phones</p>
                         </div>
                     </div>
 

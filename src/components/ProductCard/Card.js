@@ -118,7 +118,7 @@ const Card = ({ cart, setcart }) => {
 
 
 
-  }, [])
+  }, [id])
   // console.log(cart)
 
 

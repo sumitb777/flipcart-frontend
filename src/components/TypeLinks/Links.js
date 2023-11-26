@@ -9,7 +9,7 @@ const Links = () => {
 
   const gettypesm = async () => {
     try {
-      let url = `https://flipcart-backend.onrender.com/${type}`;
+      let url = `https://flipcart-backend.onrender.com/get-product-by-type/${type}`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypedata(data.result)
@@ -23,7 +23,7 @@ const Links = () => {
   }
   useEffect(() => {
     gettypesm()
-  }, [])
+  }, [type])
   // console.log(typedata)
 
   return (
