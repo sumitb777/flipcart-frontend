@@ -140,7 +140,7 @@ const Row = () => {
                       <p className='h6 card-title '>₹{numberWithCommas(value.price[0])}</p>
                       <p className='h6 card-title text-d text-decoration-line-through  text-secondary'>
                         ₹{numberWithCommas(value.price[1])}</p>
-                      <p className='h6 card-title '>{value.price[2]}</p>
+                      <p className='h6 card-title text-success  '>{value.price[2]}</p>
                     </div>
                   </div>
                 )
@@ -178,7 +178,7 @@ const Row = () => {
                       <p className='h6 card-title '>₹{numberWithCommas(value.price[0])}</p>
                       <p className='h6 card-title text-d text-decoration-line-through  text-secondary'>
                         ₹{numberWithCommas(value.price[1])}</p>
-                      <p className='h6 card-title '>{value.price[2]}</p>
+                      <p className='h6 card-title text-success  '>{value.price[2]}</p>
                     </div>
 
 
@@ -219,7 +219,7 @@ const Row = () => {
                       <p className='h6 card-title '>₹{numberWithCommas(value.price[0])}</p>
                       <p className='h6 card-title text-d text-decoration-line-through  text-secondary'>
                         ₹{numberWithCommas(value.price[1])}</p>
-                      <p className='h6 card-title '>{value.price[2]}</p>
+                      <p className='h6 card-title text-success '>{value.price[2]}</p>
                     </div>
 
 
