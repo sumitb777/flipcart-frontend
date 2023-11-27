@@ -137,12 +137,12 @@ const Row = () => {
                       <p className='mt-1' >{'('}{numberWithCommas(value.rating[1])}{')'}</p>
                     </div>
                     <div className='d-flex gap-1 '>
-                      <p className='h6 card-title '>₹{numberWithCommas(value.price[0])}</p>
-                      <p className='h6 card-title text-d text-decoration-line-through  text-secondary'>
+                      <p className='h6 card-title lh-1 '>₹{numberWithCommas(value.price[0])}</p>
+                      <p className='h6 card-title text-d text-decoration-line-through lh-1  text-secondary'>
                         ₹{numberWithCommas(value.price[1])}</p>
-                      <p className='h6 card-title text-success d-md-block  d-none '>{value.price[2]}</p>
+                      <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2]}</p>
                     </div>
-                    <p className='h6 card-title text-success d-block d-md-none'>{value.price[2]}</p>
+                    <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}</p>
                   </div>
                 )
               })}
@@ -175,13 +175,13 @@ const Row = () => {
                         <img className='ratingstar' src='/images/star.svg' /> </p>
                       <p className='mt-1'>{'('}{value.rating[1]}{')'}</p>
                     </div>
-                    <div className='d-flex gap-1 '>
-                      <p className='h6 card-title '>₹{numberWithCommas(value.price[0])}</p>
-                      <p className='h6 card-title text-d text-decoration-line-through  text-secondary'>
+                    <div className='d-flex gap-1  '>
+                      <p className='h6 card-title lh-1 '>₹{numberWithCommas(value.price[0])}</p>
+                      <p className='h6 card-title text-d text-decoration-line-through lh-1  text-secondary'>
                         ₹{numberWithCommas(value.price[1])}</p>
-                      <p className='h6 card-title text-success d-md-block  d-none '>{value.price[2]}</p>
+                      <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2]}</p>
                     </div>
-                    <p className='h6 card-title text-success d-block d-md-none'>{value.price[2]}</p>
+                    <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}</p>
 
 
                   </div>
@@ -217,12 +217,12 @@ const Row = () => {
                       <p className='mt-1'>{'('}{value.rating[1]}{')'}</p>
                     </div>
                     <div className='d-flex gap-1 '>
-                      <p className='h6 card-title '>₹{numberWithCommas(value.price[0])}</p>
-                      <p className='h6 card-title text-d text-decoration-line-through  text-secondary'>
+                      <p className='h6 card-title lh-1 '>₹{numberWithCommas(value.price[0])}</p>
+                      <p className='h6 card-title text-d text-decoration-line-through lh-1  text-secondary'>
                         ₹{numberWithCommas(value.price[1])}</p>
-                      <p className='h6 card-title text-success  d-md-block  d-none  '>{value.price[2]}</p>
+                      <p className='h6 card-title text-success  d-md-block  d-none lh-1  '>{value.price[2]}</p>
                     </div>
-                    <p className='h6 card-title text-success d-block d-md-none  '>{value.price[2]}</p>
+                    <p className='h6 card-title text-success d-block d-md-none lh-1  '>{value.price[2]}</p>
 
                   </div>
 
