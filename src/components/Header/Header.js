@@ -348,7 +348,7 @@ const Header = ({ cart, setcart, user }) => {
                             <p className="" aria-current="page" href="">Computer</p>
                         </div>
                     </div>
-                    <div className=" border-0 btn"
+                    <div className=" border-0 btn d-md-block  d-none "
                         onClick={() => Navigate(`link/mobile`)}>
                         <img className="card-img-top citop" alt="..." src='/images/link2.webp' />
                         <div className="card-body  p-0  ">

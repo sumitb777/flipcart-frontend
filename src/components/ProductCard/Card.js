@@ -193,8 +193,8 @@ const Card = ({ cart, setcart }) => {
 
               <div className=' container-fluid d-flex flex-md-row flex-column col-12   px-md-5 bg-body-secondary mt-1  position-relative '
                 key={value.id}>
-                <div className='productimg col-md-5 col-12  p-md-4 bg-white border d-flex flex-column align-items-center   position-sticky  '>
-                  <img className='productimage text-center img-fluid mt-md-3 mt-1 '
+                <div className='col-md-5 col-12  p-md-4 bg-white border d-flex flex-column align-items-center   position-sticky  '>
+                  <img className='productimage text-center   img-fluid mt-md-3 mt-1 '
                     src={`/images/products/${[value.img]}`} alt='' />
                   <div className='d-flex col-12 gap-2 mt-md-5 ms-md-4 flex-column flex-md-row   '>
 

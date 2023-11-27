@@ -108,13 +108,11 @@ input:focus {
     background-color: #fb641b;
 }
 
-.productd {
-    /* height: ; */
-}
+
 
 .productimage {
-    height: 45vh;
-    width: 80%;
+    height: 55vh;
+    width: 60%;
 }
 
 .offerimg {
@@ -131,10 +129,25 @@ input:focus {
     margin: 0px;
 }
 
-@media (max-width:700px) {
-    header-logo {
-        width: 20px !important;
-        height: 25px;
+@media only screen and (max-width:700px) {
+
+
+    .cardimg {
+        width: 100px;
+        height: 150px;
+    }
+
+    .cardbox {
+        width: 192px;
+    }
+
+    .carousel-img {
+        height: 90px;
+    }
+
+    .productimage {
+        height: 40vh;
+        width: 50%;
     }
 
 }
