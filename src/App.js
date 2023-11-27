@@ -17,7 +17,6 @@ function App() {
 
 
   let userdata = () => {
-
     let token = localStorage.getItem('token')
     if (token === null) {
       return null

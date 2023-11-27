@@ -34,7 +34,8 @@ const Card = ({ cart, setcart }) => {
   const addtocart = (item => {
 
     setcart([...cart, item])
-    console.log("cart" + cart)
+    // localStorage.setItem('carts',)
+    console.log("cart" + item)
     toast.success("Item added on cart", {
       position: "top-right",
       autoClose: 1500,
@@ -115,8 +116,6 @@ const Card = ({ cart, setcart }) => {
 
   useEffect(() => {
     getcarddata()
-
-
 
   }, [id])
   // console.log(cart)
@@ -207,9 +206,10 @@ const Card = ({ cart, setcart }) => {
 
 
                     <div className='col-md-6 btn btn-lg rounded-0  buybutton d-flex justify-content-center 
-                    align-items-center' onClick={() => total(value)}  >
-                      <p className=' text-center mt-2 ' data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">Buy</p>
+                    align-items-center' data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                      onClick={() => total(value)}  >
+                      <p className=' text-center mt-2 ' >Buy</p>
                     </div>
                   </div>
                 </div>

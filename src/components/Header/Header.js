@@ -196,7 +196,7 @@ const Header = ({ cart, setcart, user }) => {
                                 <img src='/images/plus.png' alt='' />
                             </span>
                         </div>
-                        <form className="d-flex bg-white col-md-10 col-7  search h-100  py-2 
+                        <form className="d-flex bg-white col-md-10 col-6  search h-100  py-2 
                          rounded-0 position-relative  "
 
                         >
@@ -258,8 +258,9 @@ const Header = ({ cart, setcart, user }) => {
                         </div>
                         <div>
                             <p className='btn text-white fs-md-5 fw-bold px-0 mt-3 d-flex  flex-column flex-md-row  '
-                                onClick={() => { Navigate(`/cart/`) }}  ><span className="badge text-bg-secondary">{cart.length}</span>
-                                <img alt='' className='text-white d-none d-md-block ' src='/images/cart3.svg' />
+                                onClick={() => { Navigate(`/cart/`) }}  ><img alt=''
+                                    className='cartimg text-white d-none d-md-block m-0' src='/images/cart3.svg' />
+                                <span className="badge text-bg-secondary">{cart.length}</span>
                                 Cart
                             </p>
                         </div>
@@ -269,33 +270,33 @@ const Header = ({ cart, setcart, user }) => {
 
 
                     {/* offcanvas */}
-                    <div class="offcanvas offcanvas-end bg-secondary  " tabindex="-1" id="offcanvasRight"
+                    <div class="offcanvas offcanvas-end bg-primary  " tabindex="-1" id="offcanvasRight"
                         aria-labelledby="offcanvasRightLabel">
-                        <div class="offcanvas-header text-white m-0 ">
+                        <div class="offcanvas-header  m-0 border  border-black border-start-0    border-bottom-2 ">
                             {/* <p id="offcanvasRightLabel"></p> */}
-                            <button type="button" class="btn  text-white" data-bs-dismiss="offcanvas"
+                            <button type="button" class="btn fs-5 fw-bold   " data-bs-dismiss="offcanvas"
                                 aria-label="Close">close </button>
                         </div>
-                        <div class="offcanvas-body text-white mt-1 p-0 ">
+                        <div class="offcanvas-body text-white mt-1 p-0      ">
                             {/* canvas body */}
 
 
-                            <div className=' '>
+                            <div className='d-flex flex-column align-items-center   '>
                                 {/* <div className=' d-flex gap-md-5   '></div> */}
 
-                                {user == null ? <div className='text-white '>
+                                {user == null ? <div className='text-white d-flex flex-column '>
 
-                                    <p className='text-white  fs-6   btn  fw-bold  ms-0 '
+                                    <p className='text-white  fs-6   btn  fw-bold  ms-1 '
                                         data-bs-toggle="modal" data-bs-target="#exampleModal2">Log In</p>
                                     <p className='text-white  fs-6  btn fw-bold  ms-0  '
                                         data-bs-toggle="modal" data-bs-target="#exampleModal">Create Account </p>
 
 
                                 </div> :
-                                    <div className='text-white '>
+                                    <div className='text-white d-flex flex-column align-items-center'>
+                                        <img className='userlogo  rounded-1' src='/images/user.svg' alt='' />
+                                        <p className='text-white  fs-md-5 fw-bold   btn   fw-bold ' >
 
-                                        <p className='text-white  fs-md-5 fw-bold   btn  ms-0 fw-bold ' >
-                                            <img className='userlogo  rounded-1' src='/images/user.svg' alt='' />
                                             {user.username}</p>
                                         <p className="login btn text-white  ms-md-4 h-50  fw-bold  "
                                             onClick={handellogout}>Logout</p>
@@ -306,8 +307,9 @@ const Header = ({ cart, setcart, user }) => {
 
                                 <div>
                                     <p className='btn text-white fs-md-5 fw-bold px-0 d-flex   '
-                                        onClick={() => { Navigate(`/cart/`) }}  ><span className="badge text-bg-secondary">{cart.length}</span>
-                                        <img alt='' className='d-none d-md-block ' src='/images/cart3.svg' />
+                                        onClick={() => { Navigate(`/cart/`) }}  >
+                                        <span className="badge text-bg-secondary">{cart.length}</span>
+                                        <img alt='' className='cartimg me-2' src='/images/cart3.svg' />
                                         Cart
                                     </p>
                                 </div>

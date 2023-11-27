@@ -33,7 +33,6 @@ const Links = () => {
 
 
 
-
         <div className=' d-flex col-md-10 col-12 m-auto  flex-wrap  '>
 
           {typedata.map((value) => {
