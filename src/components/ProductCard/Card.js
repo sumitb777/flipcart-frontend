@@ -259,7 +259,7 @@ const Card = ({ cart, setcart }) => {
                       <p className='p-2 '> {value.warranty} </p>
                     </div>
 
-                    <div className='mt-3  d-flex  '>
+                    <div className='  d-flex  '>
                       <div className='bg-white  p-2 me-5  '>
                         <p className='p-2 fw-bold text-black-50'> Delivery </p>
                       </div>
@@ -272,12 +272,12 @@ const Card = ({ cart, setcart }) => {
                       </div>
                     </div>
 
-                    <div className='mt-3  d-flex  flex-md-row flex-column'>
+                    <div className='mt-md-3  d-flex  flex-md-row flex-column'>
                       <div className='bg-white  p-2 '>
-                        <p className='p-2 fw-bold text-black-50'> Highlights </p>
+                        <p className='p-md-2 fw-bold text-black-50'> Highlights </p>
                       </div>
 
-                      <div className='bg-white d-flex mt-2 p-2 ms-2'>
+                      <div className='bg-white d-flex mt-md-2 p-2 ms-2'>
                         <ul className=' fw-semibold text-black  '>
                           {value.highlights.map((v) => {
                             return (
@@ -290,13 +290,13 @@ const Card = ({ cart, setcart }) => {
                     </div>
 
 
-                    <div className='mt-3  d-flex flex-md-row flex-column '>
-                      <div className='bg-white  p-2 me-5  '>
+                    <div className='mt-md-3   d-flex flex-md-row flex-column '>
+                      <div className='bg-white   me-md-5  '>
 
                         <p className='p-2 fw-bold text-black-50 '> Seller </p>
                       </div>
 
-                      <div className='bg-white  mt-2 pt-2  ms-3'>
+                      <div className='bg-white  mt-md-2 pt-2  ms-md-3'>
                         <div className='d-flex ps-4'>
                           <p className=' fw-semibold text-black  '> TrueComRetail </p>
 
@@ -309,12 +309,12 @@ const Card = ({ cart, setcart }) => {
                       </div>
                     </div>
 
-                    <div className='col-5'>
+                    <div className='col-md-5 col-10 my-2 m-auto '>
                       <img className='p-img w-100 h-100' src={`/images/supercoin.webp`} alt='' />
                     </div>
 
 
-                    <div className='mt-3  d-flex flex-md-row flex-column '>
+                    <div className='  d-flex flex-md-row flex-column '>
                       <div className='bg-white  p-md-2 '>
                         <p className='p-md-2 fw-bold text-black-50'>Description </p>
                       </div>
