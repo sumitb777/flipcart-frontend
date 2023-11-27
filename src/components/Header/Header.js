@@ -196,7 +196,7 @@ const Header = ({ cart, setcart, user }) => {
                                 <img src='/images/plus.png' alt='' />
                             </span>
                         </div>
-                        <form className="d-flex bg-white col-md-10 col-6  search h-100  py-2 
+                        <form className="d-flex bg-white col-md-10 col-7  search h-100  py-2 
                          rounded-0 position-relative  "
 
                         >
@@ -224,7 +224,7 @@ const Header = ({ cart, setcart, user }) => {
 
                         </form>
                         <div className='col-2 d-md-none '>
-                            <button class="btn btn-primary  text-white  " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                            <button class="btn   text-white  " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                                 aria-controls="offcanvasRight">More</button>
                         </div>
                     </div>
