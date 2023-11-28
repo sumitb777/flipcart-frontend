@@ -77,7 +77,6 @@ const Row = () => {
 
 
 
-
           <div id="carouselExample" class="carousel slide my-2">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -109,8 +108,8 @@ const Row = () => {
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <button class="carousel-control-next h-100" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon " aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>

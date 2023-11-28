@@ -152,7 +152,7 @@ const Header = ({ cart, setcart, user }) => {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -254,10 +254,10 @@ const Header = ({ cart, setcart, user }) => {
                         }
 
                         <div className=''>
-                            <p className=' text-white mx-0 fs-md-5 fw-bold mt-3 d-none d-md-block '>Become a Seller</p>
+                            <p className=' text-white mx-0 fs-6 fw-bold mt-3 d-none d-md-block lh-base  '>Become a Seller</p>
                         </div>
                         <div>
-                            <p className='btn text-white fs-md-5 fw-bold px-0 mt-3 d-flex  flex-column flex-md-row  '
+                            <p className='btn text-white fs-md-5 fw-bold  px-0 mt-3 d-flex  flex-column flex-md-row  '
                                 onClick={() => { Navigate(`/cart/`) }}  ><img alt=''
                                     className='cartimg text-white d-none d-md-block m-0' src='/images/cart3.svg' />
                                 <span className="badge text-bg-secondary">{cart.length}</span>
