@@ -257,10 +257,21 @@ const Header = ({ cart, setcart, user }) => {
                             <p className=' text-white mx-0 fs-6 fw-bold mt-3 d-none d-md-block lh-base  '>Become a Seller</p>
                         </div>
                         <div>
-                            <p className='btn text-white fs-md-5 fw-bold  px-0 mt-3 d-flex  flex-column flex-md-row  '
-                                onClick={() => { Navigate(`/cart/`) }}  ><img alt=''
-                                    className='cartimg text-white d-none d-md-block m-0' src='/images/cart3.svg' />
-                                <span className="badge text-bg-secondary">{cart.length}</span>
+                            <p className='btn text-white fs-md-5 fw-bold  px-0 mt-3 d-flex  flex-column flex-md-row '
+                                onClick={() => { Navigate(`/cart/`) }}  >
+                                {/* <img alt=''className='cartimg text-white d-none d-md-block m-0' src='/images/cart3.svg' /> */}
+
+                                <span className="badge text-bg-secondary  ">
+                                    <i class="fa-solid fa-cart-shopping w-50 fa-xl" style={{ color: ' #d8dadf' }}></i>
+                                    {cart.length === 0 ? (<></>)
+
+                                        : (
+                                            <span className=' bg-danger rounded-circle pe-1 mb-1 '> {cart.length}</span>
+                                        )}
+
+
+
+                                </span>
                                 Cart
                             </p>
                         </div>
@@ -309,7 +320,8 @@ const Header = ({ cart, setcart, user }) => {
                                     <p className='btn text-white fs-md-5 fw-bold px-0 d-flex   '
                                         onClick={() => { Navigate(`/cart/`) }}  >
                                         <span className="badge text-bg-secondary">{cart.length}</span>
-                                        <img alt='' className='cartimg me-2' src='/images/cart3.svg' />
+                                        {/* <img alt='' className='cartimg me-2' src='/images/cart3.svg' /> */}
+                                        <i class="fa-solid fa-cart-shopping  fa-xl" style={{ color: ' #d8dadf' }}></i>
                                         Cart
                                     </p>
                                 </div>

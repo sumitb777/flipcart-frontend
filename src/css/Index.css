@@ -109,7 +109,7 @@ input:focus {
 
 
 .productimage {
-    height: 55vh;
+    max-height: 55vh;
     width: 60%;
 }
 
