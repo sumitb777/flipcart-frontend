@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 const Row = () => {
-
+  const screen = window.innerWidth;
   let navigate = useNavigate();
   const [typesm, settypesm] = useState([])
   const [typese, settypese] = useState([])
   const [typesc, settypesc] = useState([])
   const [id, setid] = useState('')
+
+  const ele1 = useRef();
+  const ele2 = useRef();
+  const ele3 = useRef();
 
   const gettypesm = async () => {
     try {
@@ -57,6 +61,13 @@ const Row = () => {
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
+  }
+
+  const leftslide = (ele) => {
+    ele.scrollLeft -= screen - 60
+  }
+  const rightslide = (ele) => {
+    ele.scrollLeft += screen + 60
   }
 
   useEffect(() => {
@@ -115,11 +126,21 @@ const Row = () => {
           </div>
 
 
-          <div className='col-12 mx-1 mt-3  m-auto '>
+          <div className='col-12 mx-1 mt-3 rows  position-relative'>
             <div className='text-start bg-light p-3  '>
-              <h3>Shop Mobiles</h3>
+              <h3> Shop Mobiles</h3>
             </div>
-            <div className="scrolling-wrapper col-12 w-100 position-relative d-flex gap-3 bg-body-secondary ">
+            <div className='arrowl  position-absolute d-flex  align-items-center  justify-content-between    z-3 '>
+              <p className=' btn h-100 d-flex  align-items-center  justify-content-between  '
+                onClick={() => leftslide(ele1.current)}
+              ><i class="fa-solid fa-chevron-left fa-1 left   "   ></i></p>
+            </div>
+            <div className='arrowr position-absolute  d-flex  align-items-center  justify-content-between    z-3 '>
+              <p className='btn h-100 d-flex  align-items-center  justify-content-between '
+                onClick={() => rightslide(ele1.current)}><i class="fa-solid fa-chevron-right fa-1 " ></i></p>
+            </div>
+
+            <div className="scrolling-wrapper overflow-x-scroll col-12 w-100 position-relative d-flex gap-3 bg-body-secondary " ref={ele1}>
 
               {typesm.map((value, index) => {
                 return (
@@ -150,11 +171,23 @@ const Row = () => {
 
 
 
-          <div className='col-12 mx-1 mt-3  m-auto '>
+          <div className='col-12 mx-1 mt-3  m-auto position-relative '>
             <div className='text-start bg-light  p-3   '>
               <h3>Shop Electronics</h3>
             </div>
-            <div className="scrolling-wrapper  gap-3  position-relative d-flex bg-body-secondary ">
+
+
+            <div className='arrowl  position-absolute d-flex  align-items-center  justify-content-between    z-3 '>
+              <p className=' btn h-100 d-flex  align-items-center  justify-content-between  '
+                onClick={() => leftslide(ele2.current)}
+              ><i class="fa-solid fa-chevron-left fa-1 left  "   ></i></p>
+            </div>
+            <div className='arrowr position-absolute  d-flex  align-items-center  justify-content-between    z-3 '>
+              <p className='btn h-100 d-flex  align-items-center  justify-content-between '
+                onClick={() => rightslide(ele2.current)}><i class="fa-solid fa-chevron-right fa-1 " ></i></p>
+            </div>
+
+            <div className="scrolling-wrapper  gap-3  position-relative d-flex bg-body-secondary " ref={ele2}>
 
               {typese.map((value, index) => {
 
@@ -191,11 +224,25 @@ const Row = () => {
           </div>
 
 
-          <div className='col-12 mx-1 mt-3  m-auto '>
+          <div className='col-12 mx-1 mt-3  m-auto position-relative '>
             <div className='text-start my- p-3  bg-light '>
               <h3>Shop Computers </h3>
             </div>
-            <div className="scrolling-wrapper  position-relative d-flex  gap-3 bg-body-secondary ">
+
+            <div className='arrowl  position-absolute d-flex  align-items-center  justify-content-between    z-3 '>
+              <p className=' btn h-100 d-flex  align-items-center  justify-content-between  '
+                onClick={() => leftslide(ele3.current)}
+              ><i class="fa-solid fa-chevron-left  fa-1 left  "   ></i></p>
+            </div>
+            <div className='arrowr position-absolute  d-flex  align-items-center  justify-content-between    z-3 '>
+              <p className='btn h-100 d-flex  align-items-center  justify-content-between '
+                onClick={() => rightslide(ele3.current)}><i class="fa-solid fa-chevron-right fa-1 " ></i></p>
+            </div>
+
+
+
+
+            <div className="scrolling-wrapper  position-relative d-flex  gap-3 bg-body-secondary " ref={ele3}>
 
               {typesc.map((value, index) => {
 

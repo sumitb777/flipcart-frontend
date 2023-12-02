@@ -72,7 +72,7 @@ input:focus {
 
 }
 
-.scrolling-wrapper::-webkit-scrollbar {
+/* .scrolling-wrapper::-webkit-scrollbar {
     width: 2px;
 }
 
@@ -92,17 +92,15 @@ input:focus {
 .scrolling-wrapper::-webkit-scrollbar-button {
 
     background-color: rgba(240, 231, 231, 0.945);
-}
+} */
 
 .scrolling-wrapper {
-    overflow-x: auto !important;
+    overflow-x: hidden !important;
+    scroll-behavior: smooth;
 
 }
 
-/* .cardbox {
 
-    width: 20% !important;
-} */
 
 .buybutton {
     background-color: #fb641b;
@@ -155,4 +153,53 @@ input:focus {
         width: 50%;
     }
 
+}
+
+.arrowl {
+    /* left: 10px; */
+    top: 43%;
+    z-index: 99;
+    height: 20%;
+    background-color: #fcf6f665;
+    padding-top: 12px;
+}
+
+
+.arrowr {
+
+    right: 0;
+    z-index: 99;
+    top: 43%;
+    height: 20%;
+    background-color: #fcf6f665;
+
+    padding-top: 12px;
+
+}
+
+.arrowl:hover {
+    cursor: pointer;
+    background-color: rgba(236, 232, 232, 0.979);
+
+}
+
+.arrowr:hover {
+    cursor: pointer;
+    background-color: rgba(236, 232, 232, 0.979);
+
+}
+
+.rows {
+    height: 100%;
+}
+
+.foooter-c {
+    margin-top: 20vh;
+    height: 30vh;
+    width: 100% !important;
+    background-color: rgb(26, 25, 25);
+}
+
+.input-s:placeholder-shown {
+    padding-left: 10%;
 }

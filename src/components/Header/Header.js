@@ -201,9 +201,9 @@ const Header = ({ cart, setcart, user }) => {
 
                         >
 
-                            <input type="text" className="bg-transparent col-8  col-md-11 rounded-0 
+                            <input type="text" className="bg-transparent col-8  input-s col-md-11 rounded-0 
                                     border border-0  text-decoration-none " value={products}
-                                placeholder="Search "
+                                placeholder="Search Products"
                                 onChange={((e) => setproducts(e.target.value))}
                             />
                             <p type='submit' className="  btn col-md-1 col-3  position-relative " >

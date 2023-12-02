@@ -13,9 +13,7 @@ const Homepage = ({ user }) => {
 
         <>
             <Row />
-            <div className='bg-dark-50 my-5 '>
-                <p className='text-center'>Filpcart Clone @ Sumit</p>
-            </div>
+
         </>
     )
 }

@@ -171,16 +171,6 @@ const Card = ({ cart, setcart }) => {
         <div className=' col-12 '>
 
 
-          {/* model htmlFor payments */}
-
-
-
-          {/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  Launch static backdrop modal
-                 </button> */}
-
-          {/* <!-- Modal --> */}
-
 
 
 
@@ -228,7 +218,7 @@ const Card = ({ cart, setcart }) => {
                     <div className='d-flex align-items-center mt-2  '>
                       <p className='h6 card-title text-white py-0 px-2 bg-success bg-gradient rating '>{value.rating[0]}
                         <img className='ratingstar pb-1' src='/images/star.svg' alt='' /> </p>
-                      <p className='mt-2 ms-2 '> {'('}{value.rating[1]}{')'} Ratings</p>
+                      <p className='mt-2 ms-2 '> {'('}{value.rating[1].toLocaleString()}{')'} Ratings</p>
                     </div>
                     <div className='d-flex gap-1 align-items-center '>
                       <p className='h5 card-title '>₹{value.price[0].toLocaleString()}</p>
