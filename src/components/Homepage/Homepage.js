@@ -3,6 +3,7 @@ import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
 import Header from '../Header/Header'
 import Row from '../ProductRow/Row'
+import Slide from '../Slider/Slide'
 
 
 const Homepage = ({ user }) => {
@@ -13,7 +14,7 @@ const Homepage = ({ user }) => {
 
         <>
             <Row />
-
+            <Slide />
         </>
     )
 }

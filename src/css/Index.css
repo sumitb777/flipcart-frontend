@@ -95,7 +95,7 @@ input:focus {
 } */
 
 .scrolling-wrapper {
-    overflow-x: hidden !important;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 
 }
@@ -189,9 +189,9 @@ input:focus {
 
 }
 
-.rows {
+/* .rows {
     height: 100%;
-}
+} */
 
 .foooter-c {
     margin-top: 20vh;
