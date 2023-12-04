@@ -64,10 +64,10 @@ const Row = () => {
   }
 
   const leftslide = (ele) => {
-    ele.scrollLeft -= screen - 60
+    ele.scrollLeft -= screen - 30
   }
   const rightslide = (ele) => {
-    ele.scrollLeft += screen + 60
+    ele.scrollLeft += screen + 30
   }
 
   useEffect(() => {
@@ -81,9 +81,9 @@ const Row = () => {
   return (
 
     <>
-      < div className=' '>
+      < div className='roduct-body '>
 
-
+        <div></div>
         <div className='col-12  mt-3  '>
 
 

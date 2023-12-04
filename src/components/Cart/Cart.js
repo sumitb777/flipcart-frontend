@@ -18,13 +18,26 @@ const Cart = ({ cart, setcart }) => {
     })
     settotal(totals)
 
-  }, [])
+  }, [cart])
 
   console.log(total)
+  const removecart = () => {
+    // const updatedCart = cart.filter(item => item.id !== i);
+    setcart([])
+    settotal(0)
+    // console.log(updatedCart)
+  }
+  const removeitem = (i) => {
+    const updatedCart = cart.filter(item => item.id !== i);
+    setcart(updatedCart)
+
+
+  }
+
 
 
   return (
-    <div className='h-100' style={{ backgroundColor: 'f1f3f6' }}>
+    <div className='h-100 cart-block' style={{ backgroundColor: 'f1f3f6' }}>
 
       <div className='col-md-8 col-12 m-auto mt-3  '>
 
@@ -32,19 +45,19 @@ const Cart = ({ cart, setcart }) => {
 
           return (
 
-            <div className=' mb-4 btn d-flex border border-2 shadow col-md-10 py-5  bg-white' key={value.id}
-              onClick={() => navigate(`/card/${value.id}`)}   >
-              <div className='col-3 btn' >
+            <div className=' mb-4  d-flex border border-2 shadow col-md-10 col-12  py-5  bg-white' key={value.id}
+            >
+              <div className='col-md-3 btn col-2 ' >
 
-                <img alt='' className='w-50 h-100' src={`/images/products/${value.img}`}></img>
+                <img alt='' className=' img-fluid w-100 height-50 ' src={`/images/products/${value.img}`}></img>
 
               </div>
-              <div className='col-8'>
+              <div className='col-md-7 col-5 btn' onClick={() => navigate(`/card/${value.id}`)} >
                 <p className='text-start'>{value.short_des}</p>
                 <div className='d-flex align-items-center mt-2  '>
                   <p className='h6 card-title text-white py-0 px-2 bg-success bg-gradient rating '>{value.rating[0]}
                     <img className='ratingstar pb-1' src='/images/star.svg' alt='' /> </p>
-                  <p className='mt-2 ms-2 '> {'('}{value.rating[1]}{')'} Ratings</p>
+                  <p className='mt-2 ms-md-2 '> {'('}{value.rating[1]}{')'} Ratings</p>
                 </div>
                 <div className='d-flex gap-1 align-items-center '>
                   <p className='h5 card-title '>{value.price[0]}</p>
@@ -56,6 +69,11 @@ const Cart = ({ cart, setcart }) => {
                 </div>
 
               </div>
+              <div className='mt-5 ms-0  col-4'>
+                <p className='btn m-0 p-lg-3 p-1  btn-outline-danger '
+                  onClick={() => removeitem(value.id)}
+                >Remove</p>
+              </div>
 
 
             </div>
@@ -63,9 +81,14 @@ const Cart = ({ cart, setcart }) => {
         })}
       </div>
       <div className='col-md-8 col-12 mb-5  d-flex m-auto   
-        justify-content-around '>
-        <p className='h4 ms-md-3 '>Total Items In cart = {cart.length}</p>
+        justify-content-md-around gap-3 '>
+        <p className='h4 ms-md-3 '>Total Items= {cart.length}</p>
         <p className='h4 me-md-3'>Total = {total.toLocaleString()}</p>
+        <div className=''>
+          <p className='btn   btn-outline-danger '
+            onClick={() => removecart()}
+          >Clear Cart</p>
+        </div>
 
 
       </div>

@@ -28,7 +28,8 @@ const Links = () => {
 
   return (
 
-    <>
+    <div className='product-body'>
+      <div className='text-white'> Types Page</div>
       {typedata !== null ? (
 
 
@@ -42,7 +43,7 @@ const Links = () => {
                 onClick={() => { navigate(`/card/${value.id}`) }}>
                 <img src={`/images/products/${value.img}`} className="card-img-top cardimg" alt="..." />
                 <div className="card-body">
-                  <h5 className="card-title">{value.short_des}</h5>
+                  <h5 className="card-title">{value.name}</h5>
                   <div className='d-flex align-items-center mt-2'>
                     <p className='h6 card-title py-0 px-2 bg-success bg-gradient  '>4.2
                       <img className='ratingstar' src='/images/star.svg' /> </p>
@@ -71,7 +72,7 @@ const Links = () => {
 
       ) : null}
 
-    </>
+    </div>
   )
 }
 

@@ -25,10 +25,10 @@ const Productdata = ({ type }) => {
     }
 
     const leftslide = (e) => {
-        e.scrollLeft -= screen - 200
+        e.scrollLeft -= screen - 50
     }
     const rightslide = (e) => {
-        e.scrollLeft += screen + 200
+        e.scrollLeft += screen + 50
     }
 
     useEffect(() => {
