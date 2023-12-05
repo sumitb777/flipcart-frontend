@@ -298,7 +298,7 @@ const Row = () => {
       </>
         : <>
 
-          <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '120vh' }}>
+          <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '80vh' }}>
             <div class="spinner-border  " role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
