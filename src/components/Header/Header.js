@@ -124,8 +124,8 @@ const Header = ({ cart, setcart, user }) => {
                                 />
                             </div>
                             <div class="col-auto">
-                                <label for="inputPassword2" class="visually-hidden">Password</label>
-                                <input type="password" class="form-control" id="inputPassword2"
+                                <label for="inputPassword4" class="visually-hidden">Password</label>
+                                <input type="password" class="form-control" id="inputPassword4"
                                     placeholder="Password" value={userdata.password}
                                     onChange={(event) => { setuserdata({ ...userdata, password: event.target.value }) }} />
 
@@ -324,9 +324,9 @@ const Header = ({ cart, setcart, user }) => {
                                 <div>
                                     <p className='btn text-white fs-md-5 fw-bold px-0 d-flex   '
                                         onClick={() => { Navigate(`/cart/`) }}  >
-                                        <span className="badge text-bg-secondary">{cart.length}</span>
+                                        <span className="badge text-bg-secondary  ">{cart.length}</span>
                                         {/* <img alt='' className='cartimg me-2' src='/images/cart3.svg' /> */}
-                                        <i class="fa-solid fa-cart-shopping  fa-xl" style={{ color: ' #d8dadf' }}></i>
+                                        <i class="fa-solid fa-cart-shopping  fa-xl " style={{ color: ' #d8dadf' }}></i>
                                         Cart
                                     </p>
                                 </div>

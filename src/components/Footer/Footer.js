@@ -94,7 +94,7 @@ const Footer = () => {
             <hr className=' bg-secondary ' />
             <div>
                 <div className=' col-12  d-flex flex-column flex-md-row justify-content-evenly  text-white'>
-                    <div className=' d-flex justify-content-around align-items-center  col-6'>
+                    <div className=' d-flex justify-content-around align-items-center  col-md-6 col-12 '>
                         <p>
                             <img className='' src='/images/seller.svg' alt='na' />Become a Seller
                         </p>
@@ -107,7 +107,7 @@ const Footer = () => {
 
                     </div>
 
-                    <p>© 2007-2023 Flipkart.com</p>
+                    <p className='col-md-2 col-12 '>© 2007-2023 Flipkart.com</p>
                     <img className='' src='/images/foot.svg' alt='na' />
 
                 </div>

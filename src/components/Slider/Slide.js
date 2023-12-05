@@ -31,7 +31,7 @@ const Slide = () => {
                     <div className='col-12 mx-1 mt-3 rows  position-relative'>
                         <div className='text-start bg-light p-3  '>
 
-                            <h3>{v} </h3>
+                            <h3>{v.toLocaleUpperCase()} </h3>
                         </div>
 
 
