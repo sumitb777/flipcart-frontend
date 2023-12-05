@@ -26,21 +26,33 @@ const Slide = () => {
 
     return (
         <>
-            {ProductType.map((v, index) => {
-                return (
-                    <div className='col-12 mx-1 mt-3 rows  position-relative'>
-                        <div className='text-start bg-light p-3  '>
+            {Productdata ? <>
 
-                            <h3>{v.toLocaleUpperCase()} </h3>
+
+
+                {ProductType.map((v, index) => {
+                    return (
+                        <div className='col-12 mx-1 mt-3 rows  position-relative'>
+                            <div className='text-start bg-light p-3  '>
+
+                                <h3>{v.toLocaleUpperCase()} </h3>
+                            </div>
+
+
+                            <Productdata type={v} />
+
+
                         </div>
-
-
-                        <Productdata type={v} />
-
-
+                    )
+                })}
+            </>
+                : <>
+                    <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '80vh' }}>
+                        <div class="spinner-border  " role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                     </div>
-                )
-            })}
+                </>}
         </>
     )
 }

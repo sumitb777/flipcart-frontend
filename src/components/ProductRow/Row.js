@@ -168,7 +168,7 @@ const Row = () => {
                       <p className='h6 card-title mt-1'>{value.name}</p>
                       <div className='d-flex align-items-center mt-1'>
                         <p className='h6 card-title py-0 px-md-2 rating  text-white   '>{value.rating[0]}
-                          <img className='ratingstar' src='/images/star.svg' /> </p>
+                          <img className='ratingstar' src='/images/star.svg' alt='na' /> </p>
                         <p className='mt-1' >{'('}{numberWithCommas(value.rating[1])}{')'}</p>
                       </div>
                       <div className='d-flex gap-1 '>
@@ -220,12 +220,12 @@ const Row = () => {
                       <div className='d-flex align-items-center mt-1  '>
                         <p className='h6 card-title py-0 px-2 rating  text-white '>{value.rating[0]}
                           <img className='ratingstar' src='/images/star.svg' /> </p>
-                        <p className='mt-1'>{'('}{value.rating[1]}{')'}</p>
+                        <p className='mt-1'>{'('}{value.rating[1].toLocaleString()}{')'}</p>
                       </div>
                       <div className='d-flex gap-1  '>
                         <p className='h6 card-title lh-1 '>₹{numberWithCommas(value.price[0])}</p>
                         <p className='h6 card-title text-d text-decoration-line-through lh-1  text-secondary'>
-                          ₹{numberWithCommas(value.price[1])}</p>
+                          ₹{value.price[1].toLocaleString()}</p>
                         <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2]}</p>
                       </div>
                       <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}</p>
@@ -283,7 +283,7 @@ const Row = () => {
                           ₹{numberWithCommas(value.price[1])}</p>
                         <p className='h6 card-title text-success  d-md-block  d-none lh-1  '>{value.price[2]}</p>
                       </div>
-                      <p className='h6 card-title text-success d-block d-md-none lh-1  '>{value.price[2]}</p>
+
 
                     </div>
 
