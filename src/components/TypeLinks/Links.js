@@ -6,6 +6,7 @@ const Links = () => {
   const { type } = useParams('');
   const [typedata, settypedata] = useState([]);
 
+  const [istype, setistype] = useState(false);
 
   const gettypesm = async () => {
     try {
@@ -13,6 +14,7 @@ const Links = () => {
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypedata(data.result)
+      setistype(true)
 
       console.log(typedata)
 
@@ -29,8 +31,8 @@ const Links = () => {
   return (
 
     <div className='product-body'>
-      <div className='text-white'> Types Page</div>
-      {typedata !== null ? (
+
+      {istype ? (
 
 
 
@@ -70,7 +72,13 @@ const Links = () => {
 
 
 
-      ) : null}
+      ) : <>
+        <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '100vh' }}>
+          <div class="spinner-border  " role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </>}
 
     </div>
   )
