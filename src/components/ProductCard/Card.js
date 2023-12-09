@@ -221,7 +221,7 @@ const Card = ({ cart, setcart }) => {
                           src={`/images/products/${[value.img]}`} alt='' />
                         <div className='d-flex col-12 gap-2 mt-md-5 ms-md-4 flex-column flex-md-row   '>
 
-                          <div type='button' className='col-md-6  btn btn-lg
+                          <div type='button' className='col-md-6  col-12 btn btn-lg
                          btn-warning rounded-0  d-flex justify-content-center align-items-center '
                             id="liveToastBtn" onClick={() => addtocart(value)}
                           >
