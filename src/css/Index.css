@@ -147,12 +147,12 @@ input:focus {
 
     .carousel-img {
         height: 120px;
-        width: 80%;
+
     }
 
     .productimage {
         height: 40vh;
-        width: 50%;
+        width: 80%;
     }
 
 }
