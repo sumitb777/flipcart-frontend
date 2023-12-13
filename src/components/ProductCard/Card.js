@@ -22,32 +22,13 @@ const Card = ({ cart, setcart }) => {
       setistype(true)
 
 
-      // console.log(typedata)
-      // console.log(amount)
-
-
     } catch (error) {
       alert("server error")
     }
-    // console.log(typedata)
+
   }
 
-  // const addtocart = (item => {
 
-  //   setcart([...cart, item])
-  //   // localStorage.setItem('carts',)
-  //   console.log("cart" + item)
-  //   toast.success("Item added on cart", {
-  //     position: "top-right",
-  //     autoClose: 1500,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     progress: undefined,
-
-  //   });
-
-
-  // })
 
   const addtocart = (item => {
     let isPresent = false;
