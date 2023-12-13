@@ -230,7 +230,7 @@ const Card = ({ cart, setcart }) => {
 
 
                           <div className='col-md-6 btn btn-lg rounded-0  buybutton d-flex justify-content-center 
-                    align-items-center' data-bs-toggle="modal"
+                               align-items-center' data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop"
                             onClick={() => total(value)}  >
                             <p className=' text-center mt-2 ' >Buy</p>
