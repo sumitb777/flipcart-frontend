@@ -254,7 +254,7 @@ const Card = ({ cart, setcart }) => {
                             Bank Offer10% off on Citi Credit Card EMI Transactions, up to ₹1,500 on orders of
                             ₹5,000 and aboveT&C </p>
                           <p className=' '><img className=' offerimg' src='/images/offer.webp' alt='' />
-                            Buy htmlFor 150 get ₹100 off your Next BuyT&C </p>
+                            Buy 150 get ₹100 off your Next BuyT&C </p>
 
                         </div>
                         <div className='mt-3  d-flex '>

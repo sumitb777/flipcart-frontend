@@ -298,10 +298,12 @@ const Row = () => {
       </>
         : <>
 
-          <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '80vh' }}>
+          <div className=' d-flex flex-column   justify-content-center  align-items-center ' style={{ height: '60vh' }}>
             <div class="spinner-border  " role="status">
-              <span class="visually-hidden">Loading...</span>
+
             </div>
+            <p class="">Please wait server will start in 2 min</p>
+            <p>Thanks for your Pations</p>
           </div>
         </>}
     </>
