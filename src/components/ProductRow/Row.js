@@ -86,16 +86,6 @@ const Row = () => {
       {isinfo ? <>
 
 
-
-
-
-
-
-
-
-
-
-
         < div className='roduct-body '>
 
           <div></div>
@@ -238,7 +228,6 @@ const Row = () => {
               </div>
             </div>
 
-
             <div className='col-12 mx-1 mt-3  m-auto position-relative '>
               <div className='text-start my- p-3  bg-light '>
                 <h3>Shop Computers </h3>
@@ -254,9 +243,6 @@ const Row = () => {
                   onClick={() => rightslide(ele3.current)}><i class="fa-solid fa-chevron-right fa-1 " ></i></p>
               </div>
 
-
-
-
               <div className="scrolling-wrapper  position-relative d-flex  gap-3 bg-body-secondary " ref={ele3}>
 
                 {typesc.map((value, index) => {
@@ -264,11 +250,9 @@ const Row = () => {
                   return (
 
                     <div className='cardbox col-6 g-0   col-md-2 card d-flex  bg-white
-                border-primary-subtle  align-items-center  flex-nowrap   border  border-2
+                         border-primary-subtle  align-items-center  flex-nowrap   border  border-2
                    justify-content-center btn ' key={value.id}
-                      // onClick={() => { navigate(`/card/${value.id}`) }}
-                      onClick={() => { navigate(`card/${value.id}`) }}
-                    >
+                      onClick={() => { navigate(`card/${value.id}`) }}>
 
                       <img className='card-img-top cardimg ' src={`images/products/${value.img}`} alt='' />
                       <p className='h6 card-title mt-1  '>{value.name}</p>
@@ -283,16 +267,12 @@ const Row = () => {
                           ₹{numberWithCommas(value.price[1])}</p>
                         <p className='h6 card-title text-success  d-md-block  d-none lh-1  '>{value.price[2]}</p>
                       </div>
-
-
                     </div>
 
                   )
                 })}
               </div>
             </div>
-
-
           </div>
         </div>
       </>

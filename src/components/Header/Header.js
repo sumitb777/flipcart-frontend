@@ -46,7 +46,7 @@ const Header = ({ cart, setcart, user }) => {
 
     const login = async () => {
         let uri = `https://flipcart-backend.onrender.com/login`;
-        let { data } = await axios.post(uri, { ...userdata })
+        let { data } = await axios.post(uri, { logindata })
 
         if (data.status === true) {
             localStorage.setItem('token', JSON.stringify(data.token))
@@ -124,7 +124,7 @@ const Header = ({ cart, setcart, user }) => {
                                 />
                             </div>
                             <div class="col-auto">
-                                <label for="inputPassword4" class="visually-hidden">Password</label>
+                                <label for="inputPassword4" class="">Password</label>
                                 <input type="password" class="form-control" id="inputPassword4"
                                     placeholder="Password" value={userdata.password}
                                     onChange={(event) => { setuserdata({ ...userdata, password: event.target.value }) }} />
@@ -159,15 +159,15 @@ const Header = ({ cart, setcart, user }) => {
                             <div class="mb-3">
                                 <label for="exampleFormControlInput14" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput14"
-                                    placeholder="Name" value={login.username}
-                                    onChange={(event) => { setuserdata({ ...userdata, username: event.target.value }) }}
+                                    placeholder="Name" value={logindata.username}
+                                    onChange={(event) => { setlogindata({ ...logindata, username: event.target.value }) }}
                                 />
                             </div>
                             <div class="col-auto">
-                                <label for="inputPassword2" class="visually-hidden">Password</label>
+                                <label for="inputPassword2" class=" form-label">Password</label>
                                 <input type="password" class="form-control" id="inputPassword2"
-                                    placeholder="Password" value={login.password}
-                                    onChange={(event) => { setuserdata({ ...userdata, password: event.target.value }) }} />
+                                    placeholder="Password" value={logindata.password}
+                                    onChange={(event) => { setlogindata({ ...logindata, password: event.target.value }) }} />
 
                             </div>
                         </div>
