@@ -283,7 +283,7 @@ const Row = () => {
 
             </div>
             <p class="">Please wait server will start in 2 min</p>
-            <p>Thanks for your Pations</p>
+            <p>Thanks for your patience</p>
           </div>
         </>}
     </>
