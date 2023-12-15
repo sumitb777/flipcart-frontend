@@ -46,12 +46,13 @@ const Header = ({ cart, setcart, user }) => {
 
     const login = async () => {
         let uri = `https://flipcart-backend.onrender.com/login`;
-        let { data } = await axios.post(uri, { logindata })
-
+        let { data } = await axios.post(uri, { ...logindata })
+              console.log(data)
         if (data.status === true) {
             localStorage.setItem('token', JSON.stringify(data.token))
             window.location.assign('/');
-        } else {
+        }
+         else {
             alert('User not Exits')
         }
 

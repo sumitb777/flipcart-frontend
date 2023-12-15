@@ -24,9 +24,10 @@ function App() {
     else {
       let data = jwtDecode(token)
       return data
+     
     }
   }
-
+  console.log(userdata())
   let [user, setuser] = useState(userdata());
   const [cart, setcart] = useState([]);
   return (

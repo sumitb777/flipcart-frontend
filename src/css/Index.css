@@ -195,7 +195,7 @@ body {
 }
 
 /* .rows {
-    height: 100%;
+    height: 100% !important;
 } */
 
 .foooter-c {
@@ -211,6 +211,9 @@ body {
 
 .cart-block {
     min-height: 100vh;
+}
+.cart-b{
+height: 30vh !important;
 }
 
 .product-body {
