@@ -7,12 +7,10 @@ import Footer from '../Footer/Footer';
 let keyid = 'rzp_test_RB0WElnRLezVJ5';
 
 const Card = ({ cart, setcart }) => {
-
   const { id } = useParams();
   const [typedata, settypedata] = useState([]);
   const [amounts, setamount] = useState(0)
   const [istype, setistype] = useState(false);
-
   const getcarddata = async () => {
     try {
       let url = `https://flipcart-backend.onrender.com/get-product-by-id/${id}`;
@@ -20,15 +18,11 @@ const Card = ({ cart, setcart }) => {
       let data = await response.json()
       settypedata(data.result)
       setistype(true)
-
-
     } catch (error) {
       alert("server error")
     }
 
   }
-
-
 
   const addtocart = (item => {
     let isPresent = false;
@@ -53,8 +47,6 @@ const Card = ({ cart, setcart }) => {
     }
 
   })
-
-
   const total = (v) => {
     setamount(v.price[0])
     console.log(amounts)
@@ -64,8 +56,6 @@ const Card = ({ cart, setcart }) => {
     let url = 'https://flipcart-backend.onrender.com/get-order-id';
     let { data } = await axios.post(url, { amount: amounts });
     let { order } = data;
-
-
     var options = {
       key: keyid, // Enter the Key ID generated from the Dashboard
       amount: amounts * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -77,8 +67,6 @@ const Card = ({ cart, setcart }) => {
       handler: async function (response) {
 
         try {
-
-
           let sendData = {
             payment_id: response.razorpay_payment_id,
             order_id: response.razorpay_order_id,
@@ -119,24 +107,16 @@ const Card = ({ cart, setcart }) => {
     });
     rzp1.open();
   };
-
-
-
   useEffect(() => {
     getcarddata()
     window.scrollTo(0, 0)
-
   }, [id])
   // console.log(cart)
-
-
-
   return (
     <>
 
       {istype ? <>
         <div className='product-body '>
-
 
           <ToastContainer position="top-right" autoClose={1500} hideProgressBar={false} newestOnTop={false} closeOnClickrtl={false}
             pauseOnFocusLoss pauseOnHover
@@ -182,17 +162,10 @@ const Card = ({ cart, setcart }) => {
           <div className=''>
             <div className=' col-12 '>
 
-
-
-
-
-              {typedata.map((value) => {
+           {typedata.map((value) => {
 
                 return (
-
-
-
-                  <div className=' container-fluid d-flex flex-md-row flex-column col-12   px-md-5 bg-body-secondary mt-1  position-relative '
+                 <div className=' container-fluid d-flex flex-md-row flex-column col-12   px-md-5 bg-body-secondary mt-1  position-relative '
                     key={value.id}>
 
                     <div className='col-md-5 col-12   bg-white border     '>
@@ -297,7 +270,7 @@ const Card = ({ cart, setcart }) => {
 
 
                         <div className='mt-md-3   d-flex flex-md-row flex-column '>
-                          <div className='bg-white   me-md-5  '>
+                          <div className='bg-white p-2   me-md-5  '>
 
                             <p className='p-2 fw-bold text-black-50 '> Seller </p>
                           </div>
@@ -331,18 +304,11 @@ const Card = ({ cart, setcart }) => {
 
                           </div>
                         </div>
-
                       </div>
-
                     </div>
-
                   </div>
-
-
                 )
               })}
-
-
             </div >
 
           </div>
