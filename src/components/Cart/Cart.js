@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import Payment from '../Modals/Payment'
 const Cart = ({ cart, setcart }) => {
   const [total, settotal] = useState(0)
 
@@ -21,23 +21,23 @@ const Cart = ({ cart, setcart }) => {
   }, [cart])
 
   console.log(total)
-  const removecart = () => {
-    // const updatedCart = cart.filter(item => item.id !== i);
-    setcart([])
-    settotal(0)
-    // console.log(updatedCart)
-  }
+  // const removecart = () => {
+  //   // const updatedCart = cart.filter(item => item.id !== i);
+  //   setcart([])
+  //   settotal(0)
+  //   // console.log(updatedCart)
+  // }
   const removeitem = (i) => {
     const updatedCart = cart.filter(item => item.id !== i);
     setcart(updatedCart)
-
-
   }
-
-
 
   return (
     <div className=' cart-block' style={{ backgroundColor: 'f1f3f6' }}>
+
+
+      <Payment amounts={total} />
+
 
       <div className='col-md-8 col-12 m-auto mt-3  '>
 
@@ -81,13 +81,21 @@ const Cart = ({ cart, setcart }) => {
         })}
       </div>
       <div className='col-md-8 gap-md-3 gap-2   col-12 m-auto mt-3   d-flex '>
-        <p className='h4 col-md-4 '>Total Items= {cart.length}</p>
-        <p className='h4 col-md-4 '>Total = {total.toLocaleString()}</p>
-        <div className='col-md-2 '>
+        <p className='h4 col-md-4 mt-2 '>Total Items= {cart.length}</p>
+        <p className='h4 col-md-4 mt-2'>Total = {total.toLocaleString()}</p>
+
+        {cart.length !== 0 &&
+          <div className='col-md-3 btn rounded-0 buybutton d-flex justify-content-center   align-items-center' data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            <p className=' text-center text-white h5' >Place Order</p>
+          </div>}
+
+        {/* <div className='col-md-2 '>
           <p className='btn   m-0  m btn-danger '
             onClick={() => removecart()}
           >Clear Cart</p>
-        </div>
+        </div> */}
 
 
       </div>

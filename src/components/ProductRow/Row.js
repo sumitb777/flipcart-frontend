@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
-import axios from 'axios'
-import { createContext, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 const Row = () => {
   const screen = window.innerWidth;
@@ -9,8 +8,6 @@ const Row = () => {
   const [typese, settypese] = useState([])
   const [isinfo, setisinfo] = useState(false)
   const [typesc, settypesc] = useState([])
-  const [id, setid] = useState('')
-
   const ele1 = useRef();
   const ele2 = useRef();
   const ele3 = useRef();
@@ -209,7 +206,7 @@ const Row = () => {
 
                       <div className='d-flex align-items-center mt-1  '>
                         <p className='h6 card-title py-0 px-2 rating  text-white '>{value.rating[0]}
-                          <img className='ratingstar' src='/images/star.svg' /> </p>
+                          <img className='ratingstar' src='/images/star.svg'alt='' /> </p>
                         <p className='mt-1'>{'('}{value.rating[1].toLocaleString()}{')'}</p>
                       </div>
                       <div className='d-flex gap-1  '>
@@ -258,7 +255,7 @@ const Row = () => {
                       <p className='h6 card-title mt-1  '>{value.name}</p>
                       <div className='d-flex align-items-center mt-1'>
                         <p className='h6 card-title py-0 px-2 rating  text-white'>{value.rating[0]}
-                          <img className='ratingstar' src='/images/star.svg' /> </p>
+                          <img className='ratingstar' src='/images/star.svg' alt='' /> </p>
                         <p className='mt-1'>{'('}{value.rating[1]}{')'}</p>
                       </div>
                       <div className='d-flex gap-1 '>

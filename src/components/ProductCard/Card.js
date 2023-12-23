@@ -1,16 +1,21 @@
-import axios from 'axios';
+
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from '../Footer/Footer';
-let keyid = 'rzp_test_RB0WElnRLezVJ5';
+import Payment from '../Modals/Payment';
+
+// let keyid = 'rzp_test_RB0WElnRLezVJ5';
 
 const Card = ({ cart, setcart }) => {
   const { id } = useParams();
   const [typedata, settypedata] = useState([]);
   const [amounts, setamount] = useState(0)
   const [istype, setistype] = useState(false);
+ 
+ 
+ 
+  useEffect(() => {
   const getcarddata = async () => {
     try {
       let url = `https://flipcart-backend.onrender.com/get-product-by-id/${id}`;
@@ -21,8 +26,11 @@ const Card = ({ cart, setcart }) => {
     } catch (error) {
       alert("server error")
     }
-
+  
   }
+  getcarddata()
+  window.scrollTo(0, 0)
+}, [id])
 
   const addtocart = (item => {
     let isPresent = false;
@@ -52,66 +60,7 @@ const Card = ({ cart, setcart }) => {
     console.log(amounts)
   }
 
-  let makePayment = async () => {
-    let url = 'https://flipcart-backend.onrender.com/get-order-id';
-    let { data } = await axios.post(url, { amount: amounts });
-    let { order } = data;
-    var options = {
-      key: keyid, // Enter the Key ID generated from the Dashboard
-      amount: amounts * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      currency: "INR",
-      name: "flipcart Clone ",
-      description: "Make Payment to get orders",
-      image: "https://logos-world.net/wp-content/uploads/2020/11/Flipkart-Logo-700x394.png",
-      order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      handler: async function (response) {
 
-        try {
-          let sendData = {
-            payment_id: response.razorpay_payment_id,
-            order_id: response.razorpay_order_id,
-            signature: response.razorpay_signature,
-            order: [1]
-          };
-          let url = 'https://flipcart-backend.onrender.com/confirmPayment'
-          let { data } = await axios.post(url, sendData)
-          if (data.status === true) {
-            alert("Payment done successfully, order saved");
-            window.location.assign("/");
-          } else {
-            alert("Payment fail");
-          }
-
-
-        } catch (error) {
-          console.log(error)
-        }
-
-
-      },
-      prefill: {
-        name: "Gaurav Kumar",
-        email: "gaurav.kumar@example.com",
-        contact: "9000090000",
-      },
-    };
-    var rzp1 = new window.Razorpay(options);
-    rzp1.on("payment.failed", function (response) {
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
-    });
-    rzp1.open();
-  };
-  useEffect(() => {
-    getcarddata()
-    window.scrollTo(0, 0)
-  }, [id])
-  // console.log(cart)
   return (
     <>
 
@@ -121,42 +70,8 @@ const Card = ({ cart, setcart }) => {
           <ToastContainer position="top-right" autoClose={1500} hideProgressBar={false} newestOnTop={false} closeOnClickrtl={false}
             pauseOnFocusLoss pauseOnHover
           />
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Details</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <div class="mb-3">
-                    <label htmlFor="exampleFormControlInput1" class="form-label">Name</label>
-                    <input type="name" class="form-control" id="exampleFormControlInput1"
-                      placeholder="abc" />
-                  </div>
-                  <div class="mb-3">
-                    <label htmlFor="exampleFormControlInput1" class="form-label">Contact</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1"
-                      placeholder="832955****" />
-                  </div>
-                  <div class="mb-3">
-                    <label htmlFor="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                      placeholder="name@example.com" />
-                  </div>
-                  <div class="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" class="form-label">Adrress</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" onClick={makePayment}>MakePayment</button>
-                </div>
-              </div>
-            </div>
-          </div>
+     
+          <Payment amounts={amounts}/>
 
 
           <div className=''>

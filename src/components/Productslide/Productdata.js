@@ -10,21 +10,21 @@ const Productdata = ({ type }) => {
     const screen = window.innerWidth;
 
 
+    useEffect(() => {
+        const getdata = () => {
+            typeapi.typepapi(type).then(res => {
+                const result = res.data.result
+                setproductdata(result)
+                setisinfo(true)
+                console.log(res)
 
-    let getdata = () => {
-        typeapi.typepapi(type).then(res => {
-            const result = res.data.result
-            setproductdata(result)
-            setisinfo(true)
-            console.log(res)
-
+            }
+            ).catch((error) => {
+                console.log(error)
+            })
         }
-        ).catch((error) => {
-            console.log(error)
-        })
-
-
-    }
+        getdata();
+    }, [type])
 
     const leftslide = (e) => {
         e.scrollLeft -= screen - 50
@@ -32,26 +32,9 @@ const Productdata = ({ type }) => {
     const rightslide = (e) => {
         e.scrollLeft += screen + 50
     }
-
-    useEffect(() => {
-        getdata();
-    }, [])
-
-
     return (
         <>
-
-
             {isinfo ? <>
-
-
-
-
-
-
-
-
-
 
                 <div className=' position-relative'>
                     <div className='arrowl  position-absolute d-flex  align-items-center  justify-content-between    z-3 '>
@@ -64,32 +47,21 @@ const Productdata = ({ type }) => {
                             onClick={() => rightslide(element.current)}><i class="fa-solid fa-chevron-right fa-1 " ></i></p>
                     </div>
 
-
-
                     <div className='scrolling-wrapper overflow-x-scroll col-12 w-100 position-relative d-flex gap-3 bg-body-secondary'
                         ref={element} >
-
-
 
                         {productdata.map((value, index) => {
                             return (
                                 <div className='cardbox col-6 p-0   col-md-2 card d-flex  align-items-center  flex-nowrap bg-white 
                                        border border-primary-subtle  border-2  justify-content-center btn' key={value.id}
 
-                                    onClick={() => { navigate(`card/${value.id}`) }}
-
-                                >
+                                    onClick={() => { navigate(`card/${value.id}`) }} >
                                     <img className='card-img-top img-fluid  cardimg pt-md-2 mb-md-3 ' src={`images/products/${value.img}`} alt='' />
                                     <p className='h6 card-title mt-1'>{value.name}</p>
                                     <div className='d-flex align-items-center mt-1'>
-
-
                                         <p className='h6 card-title py-0 px-md-2 rating  text-white   '>{value.rating[0]}
-                                            <img className='ratingstar' src='/images/star.svg' alt /> </p>
+                                            <img className='ratingstar' src='/images/star.svg' alt='na' /> </p>
                                         <p className='mt-1' >{'('}{value.rating[1].toLocaleString()}{')'}</p>
-
-
-
 
                                     </div>
                                     <div className='d-flex gap-1 '>
