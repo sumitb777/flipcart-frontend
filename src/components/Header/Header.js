@@ -65,7 +65,7 @@ const Header = ({ cart, setcart, user }) => {
                         </div>
                         <form className="d-flex bg-white col-md-10 col-6  search h-100  py-2 
                          rounded-0 position-relative  " >
-                            <input type="text" className="bg-transparent col-10    input-s col-md-11 rounded-0 
+                            <input type="text" className="bg-transparent col-9    input-s col-md-11 rounded-0 
                                     border border-0  text-decoration-none " value={products}
                                 placeholder="Search Products"
                                 onChange={((e) => setproducts(e.target.value))} />
