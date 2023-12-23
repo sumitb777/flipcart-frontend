@@ -6,10 +6,10 @@ import UserAccount from '../Modals/UserAccount'
 
 const Header = ({ cart, setcart, user }) => {
     const Navigate = useNavigate();
-
     const [products, setproducts] = useState('');
     const [productsdata, setproductsdata] = useState([]);
     const [serchdata, setsearchdata] = useState([])
+
     const getproducts = async () => {
 
         let url = `https://flipcart-backend.onrender.com/get-products`;
@@ -18,15 +18,19 @@ const Header = ({ cart, setcart, user }) => {
         setproductsdata(data.result)
         console.log()
     }
+
     useEffect(() => {
         const filtterdata = () => {
             const data = productsdata.filter((v) => v.name.toLowerCase().includes(products.toLowerCase())).slice(0, 2)
             setsearchdata(data)
         }
-        getproducts();
         filtterdata();
 
-    }, [products])
+    }, [products, productsdata])
+
+    useEffect(() => {
+        getproducts();
+    }, [])
 
 
     const handleSubmit = (e) => {
@@ -45,7 +49,6 @@ const Header = ({ cart, setcart, user }) => {
 
             <UserAccount />
 
-
             <div className='col-12 bg-primary d-flex '   >
                 <div className=" d-flex col-12 col-lg-11 m-auto gap-md-2 gap-0  my-0 py-0 px-lg-5 d-flex    
                                 bg-primary bg-body-tertiary justify-content-md-between   align-items-center  ">
@@ -61,22 +64,15 @@ const Header = ({ cart, setcart, user }) => {
                             </span>
                         </div>
                         <form className="d-flex bg-white col-md-10 col-6  search h-100  py-2 
-                         rounded-0 position-relative  "
-
-                        >
-
+                         rounded-0 position-relative  " >
                             <input type="text" className="bg-transparent col-10    input-s col-md-11 rounded-0 
                                     border border-0  text-decoration-none " value={products}
                                 placeholder="Search Products"
-                                onChange={((e) => setproducts(e.target.value))}
-                            />
+                                onChange={((e) => setproducts(e.target.value))} />
 
                             <span className='ms-lg-2  btn'>
                                 <i class=" fa-solid fa-magnifying-glass fa-lg  "></i>
                             </span>
-
-                            {/* <img className=' img-fluid   position-absolute top-0 mt-lg-1 m-lg-1' src='/images/magnifying-glass-solid.svg' alt='' /> */}
-
 
                             <ul className='list-group position-absolute z-1  top-100 w-100 '>
                                 {serchdata.map((v) => {
@@ -87,7 +83,6 @@ const Header = ({ cart, setcart, user }) => {
                                         > <Link to={`card/${v.id}`} className="cart"></Link> {v.name} </li>
                                     )
                                 })}
-
                             </ul>
 
                         </form>
@@ -96,9 +91,8 @@ const Header = ({ cart, setcart, user }) => {
                                 aria-controls="offcanvasRight">More</button>
                         </div>
                     </div>
-
                     <div className='col-lg-5 col-md-7  d-none  d-md-flex justify-content-md-between 
-                    justify-content-start align-items-center'>
+                             justify-content-start align-items-center'>
                         {/* <div className=' d-flex gap-md-5   '></div> */}
 
                         {user == null ? <div className='d-flex '>
@@ -107,8 +101,6 @@ const Header = ({ cart, setcart, user }) => {
                                 data-bs-toggle="modal" data-bs-target="#exampleModal2">Log In</p>
                             <p className=' text-white fs-6 mt-lg-3 btn fw-bold ms-lg-4 ms-0  '
                                 data-bs-toggle="modal" data-bs-target="#exampleModal">Create Account </p>
-
-
                         </div> :
                             <div className=' d-flex '>
 
@@ -138,17 +130,12 @@ const Header = ({ cart, setcart, user }) => {
                                             <span className=' bg-danger rounded-circle pe-1 mb-1 '> {cart.length}</span>
                                         )}
 
-
-
                                 </span>
                                 Cart
                             </p>
                         </div>
 
                     </div>
-
-
-
                     {/* offcanvas */}
                     <div class="offcanvas offcanvas-end bg-primary  " tabindex="-1" id="offcanvasRight"
                         aria-labelledby="offcanvasRightLabel">
@@ -183,8 +170,6 @@ const Header = ({ cart, setcart, user }) => {
 
                                     </div>
                                 }
-
-
                                 <div>
                                     <p className='btn text-white fs-md-5 fw-bold px-0 d-flex   '
                                         onClick={() => { Navigate(`/cart/`) }}  >
@@ -196,21 +181,15 @@ const Header = ({ cart, setcart, user }) => {
                                 </div>
 
                             </div>
-
-
                             {/* canvas body end */}
                         </div>
                     </div>
-
-
                 </div>
             </div>
             <div>
-
                 <div className=" d-flex  justify-content-md-around bg-white gap-4 justify-content-center   col-12 col-md-8 m-auto ">
                     <div className=" border-0  btn"
-                        onClick={() => { Navigate('link/Electronics') }}
-                    >
+                        onClick={() => { Navigate('link/Electronics') }}>
                         <img src="/images/link-1.jpeg" className="card-img-top citop img-fluid " alt="..."></img>
                         <div className="card-body p-0   ">
                             <p className=" mt-2 " aria-current="page"  >Electronics</p>
