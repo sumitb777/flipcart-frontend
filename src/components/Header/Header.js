@@ -1,7 +1,9 @@
 
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import UserAccount from '../Modals/UserAccount'
+import TypeHeader from './TypeHeader';
+import CanvasMobile from './CanvasMobile';
 
 
 const Header = ({ cart, setcart, user }) => {
@@ -11,25 +13,27 @@ const Header = ({ cart, setcart, user }) => {
     const [serchdata, setsearchdata] = useState([])
 
     const getproducts = async () => {
-
         let url = `https://flipcart-backend.onrender.com/get-products`;
         let response = await fetch(url, { method: 'GET' });
         let data = await response.json()
         setproductsdata(data.result)
+        setsearchdata([]);
         console.log()
     }
 
     useEffect(() => {
+        setsearchdata([])
         const filtterdata = () => {
             const data = productsdata.filter((v) => v.name.toLowerCase().includes(products.toLowerCase())).slice(0, 2)
             setsearchdata(data)
         }
         filtterdata();
-
+    
     }, [products, productsdata])
 
     useEffect(() => {
         getproducts();
+        setsearchdata([]);
     }, [])
 
 
@@ -38,7 +42,8 @@ const Header = ({ cart, setcart, user }) => {
         // Navigate(`/search/${searchTerm}`)
         setsearchdata([])
     }
-    const handellogout = () => {
+    const handellogout = (e) => {
+        e.preventDefault();
         localStorage.removeItem('token')
         window.location.assign('/')
     }
@@ -65,7 +70,7 @@ const Header = ({ cart, setcart, user }) => {
                         </div>
                         <form className="d-flex bg-white col-md-10 col-6  search h-100  py-2 
                          rounded-0 position-relative  " >
-                            <input type="text" className="bg-transparent col-9    input-s col-md-11 rounded-0 
+                            <input type="text" className="bg-transparent col-9    input-s col-md-10 rounded-0 
                                     border border-0  text-decoration-none " value={products}
                                 placeholder="Search Products"
                                 onChange={((e) => setproducts(e.target.value))} />
@@ -80,12 +85,13 @@ const Header = ({ cart, setcart, user }) => {
                                         <li className='list-group-item btn z-3 '
 
                                             onClick={() => { Navigate(`card/${v.id}`) }}
-                                        > <Link to={`card/${v.id}`} className="cart"></Link> {v.name} </li>
+                                        >  {v.name} </li>
                                     )
                                 })}
                             </ul>
 
                         </form>
+
                         <div className='col-2 d-md-none '>
                             <button class="btn   text-white  " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                                 aria-controls="offcanvasRight">More</button>
@@ -96,24 +102,20 @@ const Header = ({ cart, setcart, user }) => {
                         {/* <div className=' d-flex gap-md-5   '></div> */}
 
                         {user == null ? <div className='d-flex '>
-
                             <p className=' text-white fs-6 mt-lg-3  btn  fw-bold ms-md-5 ms-0 '
                                 data-bs-toggle="modal" data-bs-target="#exampleModal2">Log In</p>
                             <p className=' text-white fs-6 mt-lg-3 btn fw-bold ms-lg-4 ms-0  '
                                 data-bs-toggle="modal" data-bs-target="#exampleModal">Create Account </p>
                         </div> :
                             <div className=' d-flex '>
-
                                 <p className=' text-white fs-md-5 fw-bold mt-3   btn ms-md-5 ms-0 fw-bold ' >
                                     {/* <img className='userlogo  rounded-1' src='/images/user.svg' alt='' /> */}
                                     <i class="fa-solid fa-user-large" style={{ color: 'white' }}></i>
                                     {user.username}</p>
                                 <p className="login btn text-white ms-md-4 h-50 fs-md-5 fw-bold mt-3 "
-                                    onClick={handellogout}>Logout</p>
-
+                                    onClick={(e)=>handellogout(e)}>Logout</p>
                             </div>
                         }
-
                         <div className=''>
                             <p className=' text-white mx-0 fs-6 fw-bold mt-lg-3 d-none d-md-block lh-base  '>Become a Seller</p>
                         </div>
@@ -136,91 +138,11 @@ const Header = ({ cart, setcart, user }) => {
                         </div>
 
                     </div>
-                    {/* offcanvas */}
-                    <div class="offcanvas offcanvas-end bg-primary  " tabindex="-1" id="offcanvasRight"
-                        aria-labelledby="offcanvasRightLabel">
-                        <div class="offcanvas-header  m-0 border  border-black border-start-0    border-bottom-2 ">
-                            {/* <p id="offcanvasRightLabel"></p> */}
-                            <button type="button" class="btn fs-5 fw-bold   " data-bs-dismiss="offcanvas"
-                                aria-label="Close">close </button>
-                        </div>
-                        <div class="offcanvas-body text-white mt-1 p-0      ">
-                            {/* canvas body */}
-
-
-                            <div className='d-flex flex-column align-items-center   '>
-                                {/* <div className=' d-flex gap-md-5   '></div> */}
-
-                                {user == null ? <div className='text-white d-flex flex-column '>
-
-                                    <p className='text-white  fs-6   btn  fw-bold  ms-1 '
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal2">Log In</p>
-                                    <p className='text-white  fs-6  btn fw-bold  ms-0  '
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">Create Account </p>
-
-
-                                </div> :
-                                    <div className='text-white d-flex flex-column align-items-center'>
-                                        <img className='userlogo  rounded-1' src='/images/user.svg' alt='' />
-                                        <p className='text-white  fs-md-5 fw-bold   btn   fw-bold ' >
-
-                                            {user.username}</p>
-                                        <p className="login btn text-white  ms-md-4 h-50  fw-bold  "
-                                            onClick={handellogout}>Logout</p>
-
-                                    </div>
-                                }
-                                <div>
-                                    <p className='btn text-white fs-md-5 fw-bold px-0 d-flex   '
-                                        onClick={() => { Navigate(`/cart/`) }}  >
-                                        <span className="badge text-bg-secondary  ">{cart.length}</span>
-                                        {/* <img alt='' className='cartimg me-2' src='/images/cart3.svg' /> */}
-                                        <i class="fa-solid fa-cart-shopping  fa-xl " style={{ color: ' #d8dadf' }}></i>
-                                        Cart
-                                    </p>
-                                </div>
-
-                            </div>
-                            {/* canvas body end */}
-                        </div>
-                    </div>
+                   
+                   <CanvasMobile user={user} logout={handellogout} cart={cart}/>
                 </div>
             </div>
-            <div>
-                <div className=" d-flex  justify-content-md-around bg-white gap-4 justify-content-center   col-12 col-md-8 m-auto ">
-                    <div className=" border-0  btn"
-                        onClick={() => { Navigate('link/Electronics') }}>
-                        <img src="/images/link-1.jpeg" className="card-img-top citop img-fluid " alt="..."></img>
-                        <div className="card-body p-0   ">
-                            <p className=" mt-2 " aria-current="page"  >Electronics</p>
-                        </div>
-
-                    </div>
-                    <div className=" border-0 btn"
-                        onClick={() => { Navigate(`link/mobile`) }}>
-                        <img className="card-img-top citop" alt="..." src='/images/link2.webp' />
-                        <div className="card-body p-0 ">
-                            <p className="" aria-current="page" href="">mobile</p>
-                        </div>
-                    </div>
-                    <div className=" border-0 btn"
-                        onClick={() => Navigate(`link/computer`)} >
-                        <img className="card-img-top citop" src='/images/link-1.jpeg' alt="" />
-                        <div className="card-body p-0  mt-2">
-                            <p className="" aria-current="page" href="">Computer</p>
-                        </div>
-                    </div>
-                    <div className=" border-0 btn d-md-block  d-none "
-                        onClick={() => Navigate(`link/mobile`)}>
-                        <img className="card-img-top citop" alt="..." src='/images/link2.webp' />
-                        <div className="card-body  p-0  ">
-                            <p className="" aria-current="page" href="">Phones</p>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+           <TypeHeader/>
 
         </div>
     )
