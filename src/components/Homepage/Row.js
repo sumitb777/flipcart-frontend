@@ -19,8 +19,6 @@ const Row = () => {
       let data = await response.json()
       settypesm(data.result)
 
-
-
     } catch (error) {
       alert("Plese wait for server to start ")
     }
@@ -87,12 +85,6 @@ const Row = () => {
 
           <div></div>
           <div className='col-12  mt-3  '>
-
-
-
-         
-
-
             <div className='col-12 mx-1 mt-3 rows  position-relative'>
               <div className='text-start bg-light p-3  '>
                 <h3> Shop Mobiles</h3>
@@ -135,7 +127,6 @@ const Row = () => {
                 })}
               </div>
             </div>
-
 
 
             <div className='col-12 mx-1 mt-3  m-auto position-relative '>

@@ -25,13 +25,11 @@ const Footer = () => {
                             <div>
                                 <p className='text-secondary '>HELP</p>
                             </div>
-
                             <a className=" text-light1 " href="#">Payments</a>
                             <a className=" text-light1 " href="#">Shipping</a>
                             <a className=" text-light1 " href="">Cancellation & Return </a>
                             <a className=" text-light1 " href="">FAQ</a>
                             <a className=" text-light1 d-md-none  d-block" href="">Report Infringement</a>
-
                         </div>
                         <div className="d-md-flex flex-column gap-3 d-flex  ">
                             <div>
@@ -54,11 +52,7 @@ const Footer = () => {
                             <a className=" text-light1 " href="">Twitter</a>
                             <a className=" text-light1 " href="">Youtube</a>
                         </div>
-
-
-
                     </div>
-
                 </section>
 
                 <section className=' col-lg-6 col-12'>
@@ -74,22 +68,16 @@ const Footer = () => {
                         </div>
                         <div>
                             <p className='text-secondary '>Registered Office Address:</p>
-
                             <p className='text-white me-lg-3 footer-add  w-75  text-wrap fs-6 '>
                                 Flipkart Internet Private Limited, Buildings Alyssa, Begonia&
                                 Clove Embassy Tech Village,
                                 Outer Ring Road, Devarabeesanahalli Village,
                                 Bengaluru, 560103,Karnataka, India
                                 CIN : U51109KA2012PTC066107
-
                             </p>
                         </div>
-
-
                     </div>
                 </section>
-
-
             </div>
             <hr className=' bg-secondary ' />
             <div>
@@ -104,22 +92,15 @@ const Footer = () => {
                         <p>
                             <img className='' src='/images/seller.svg' alt='na' />Gift Cards
                         </p>
-
                     </div>
-
                     <p className='col-md-2 col-12 '>© 2007-2023 Flipkart.com</p>
                     <img className='' src='/images/foot.svg' alt='na' />
-
                 </div>
-
             </div>
-
             <div className=' col-12 d-flex justify-content-center align-items-center foooter-c mt-4 ' >
                 <div className=' '>
                     <p className='text-white'>Filpcart Clone @ Sumit</p>
-
                 </div>
-
             </div>
         </div>
     )
