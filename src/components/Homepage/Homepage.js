@@ -1,6 +1,6 @@
 import React from 'react'
 import Row from './Row'
-import Slide from '../Slider/Slide'
+import Slide from '../Productslide/Slide'
 import ScrollToTop from '../ScrollToTop'
 
 

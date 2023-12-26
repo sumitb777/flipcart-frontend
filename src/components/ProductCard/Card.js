@@ -12,9 +12,8 @@ const Card = ({ cart, setcart }) => {
   const [typedata, settypedata] = useState([]);
   const [amounts, setamount] = useState(0)
   const [istype, setistype] = useState(false);
- 
- 
- 
+//  useLayoutEffect
+  
   useEffect(() => {
   const getcarddata = async () => {
     try {
@@ -72,7 +71,6 @@ const Card = ({ cart, setcart }) => {
           />
      
           <Payment amounts={amounts}/>
-
 
           <div className=''>
             <div className=' col-12 '>

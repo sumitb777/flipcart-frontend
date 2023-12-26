@@ -2,19 +2,15 @@
 import { Route, Routes } from 'react-router-dom';
 import Homepage from './components/Homepage/Homepage';
 import Header from './components/Header/Header';
-
 import Card from './components/ProductCard/Card';
 import Footer from './components/Footer/Footer';
-import Links from './components/TypeLinks/Links';
+import Links from './components/ProductType/Links';
 import { useState } from 'react';
 import Cart from './components/Cart/Cart';
 import { jwtDecode } from 'jwt-decode';
 
 
-
 function App() {
-
-
 
   let userdata = () => {
     let token = localStorage.getItem('token')
