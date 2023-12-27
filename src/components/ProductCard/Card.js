@@ -69,7 +69,6 @@ const Card = ({ cart, setcart }) => {
           <ToastContainer position="top-right" autoClose={1500} hideProgressBar={false} newestOnTop={false} closeOnClickrtl={false}
             pauseOnFocusLoss pauseOnHover
           />
-     
           <Payment amounts={amounts}/>
 
           <div className=''>
@@ -87,15 +86,12 @@ const Card = ({ cart, setcart }) => {
                         <img className='productimage text-center   img-fluid mt-md-3 mt-1 '
                           src={`/images/products/${[value.img]}`} alt='' />
                         <div className='d-flex col-12 gap-2 mt-md-5 ms-md-4 flex-column flex-md-row   '>
-
                           <div type='button' className='col-md-6  col-12 btn btn-lg
                          btn-warning rounded-0  d-flex justify-content-center align-items-center '
                             id="liveToastBtn" onClick={() => addtocart(value)}
                           >
                             <p className='text-center  mt-2 '>Add To Cart</p>
                           </div>
-
-
                           <div className='col-md-6 btn btn-lg rounded-0  buybutton d-flex justify-content-center 
                                align-items-center' data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop"
@@ -105,10 +101,7 @@ const Card = ({ cart, setcart }) => {
                         </div>
                       </div>
                     </div>
-
-
                     <div className='productd col-md-7 col-12  bg-white  '>
-
                       <div className='ms-md-4 mt-md-3 px-md-0 px-2'>
                         <div className=''>
                           <p className='text-black-50 '>Home {'>'} {value.product_type} {'>'} {value.name} </p>
@@ -116,7 +109,6 @@ const Card = ({ cart, setcart }) => {
                         <div className=''>
                           <p className='h3 '> {value.short_des} </p>
                         </div>
-
                         <div className='d-flex align-items-center mt-2  '>
                           <p className='h6 card-title text-white py-0 px-2 bg-success bg-gradient rating '>{value.rating[0]}
                             <img className='ratingstar pb-1' src='/images/star.svg' alt='' /> </p>
@@ -141,7 +133,6 @@ const Card = ({ cart, setcart }) => {
                             ₹5,000 and aboveT&C </p>
                           <p className=' '><img className=' offerimg' src='/images/offer.webp' alt='' />
                             Buy 150 get ₹100 off your Next BuyT&C </p>
-
                         </div>
                         <div className='mt-3  d-flex '>
                           <div className='bg-white  p-2 '>
@@ -180,8 +171,6 @@ const Card = ({ cart, setcart }) => {
                             </ul>
                           </div>
                         </div>
-
-
                         <div className='mt-md-3   d-flex flex-md-row flex-column '>
                           <div className='bg-white p-2   me-md-5  '>
 
@@ -200,12 +189,9 @@ const Card = ({ cart, setcart }) => {
 
                           </div>
                         </div>
-
                         <div className='col-md-5 col-10 my-2 m-auto '>
                           <img className='p-img w-100 h-100' src={`/images/supercoin.webp`} alt='' />
                         </div>
-
-
                         <div className='  d-flex flex-md-row flex-column '>
                           <div className='bg-white  p-md-2 '>
                             <p className='p-md-2 fw-bold text-black-50'>Description </p>
@@ -213,7 +199,6 @@ const Card = ({ cart, setcart }) => {
 
                           <div className='bg-white d-flex mt-2 pt-2 '>
                             <p className=' fw-semibold text-black ms-md-4   '> {value.description} </p>
-
 
                           </div>
                         </div>
@@ -223,11 +208,8 @@ const Card = ({ cart, setcart }) => {
                 )
               })}
             </div >
-
           </div>
-
         </div>
-
       </> : <>
         <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '100vh' }}>
           <div class="spinner-border  " role="status">
