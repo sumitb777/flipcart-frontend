@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react'
+import React from 'react';
 
 const Payment = ({ amounts }) => {
     let keyid = 'rzp_test_RB0WElnRLezVJ5';

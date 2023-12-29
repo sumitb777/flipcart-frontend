@@ -107,10 +107,11 @@ const Cart = ({ cart, setcart }) => {
           <p className='btn   m-0  m btn-danger '
             onClick={() => removecart()}
           >Clear Cart</p>
-        </div> */}
+          </div> */}
 
 
-          </div>  </>
+          </div> 
+         </>
       }
 
     </div>

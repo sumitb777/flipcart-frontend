@@ -21,16 +21,12 @@ const Header = ({ cart, setcart, user }) => {
         console.log()
     }
 
-    useEffect(() => {
-        
-        setsearchdata([])
-        const filtterdata = () => {
-            const data = productsdata.filter((v) => v.name.toLowerCase().includes(products.toLowerCase())).slice(0, 2)
-            setsearchdata(data)
-        }
-        filtterdata();
-       
-    }, [products, productsdata])
+      const filtterdata = (v) => {
+        setproducts(v)
+               const data = productsdata.filter((v) => v.name.toLowerCase().includes(products.toLowerCase())).slice(0, 2)
+                setsearchdata(data)
+             }
+
 
     useEffect(() => {
         getproducts();
@@ -74,9 +70,9 @@ const Header = ({ cart, setcart, user }) => {
                             <input type="text" className="bg-transparent col-9    input-s col-md-10 rounded-0 
                                     border border-0  text-decoration-none " value={products}
                                 placeholder="Search Products"
-                                onChange={((e) => setproducts(e.target.value))} />
-
-                            <span className='ms-lg-2  btn'>
+                            
+                                onChange={((e) => filtterdata(e.target.value))} />
+                            <span className='ms-lg-5  btn'>
                                 <i class=" fa-solid fa-magnifying-glass fa-lg  "></i>
                             </span>
 
