@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Payment from '../Modals/Payment';
+import Productimg from './Productimg';
 
 // let keyid = 'rzp_test_RB0WElnRLezVJ5';
 
@@ -31,32 +31,8 @@ const Card = ({ cart, setcart }) => {
   window.scrollTo(0, 0)
 }, [id])
 
-  const addtocart = (item => {
-    let isPresent = false;
-
-    cart.forEach(element => {
-      if (item.id === element.id) {
-        isPresent = true
-      }
-    });
-    if (isPresent) {
-      return
-    } else {
-      setcart([...cart, item])
-      toast.success("Item added on cart", {
-        position: "top-right",
-        autoClose: 1000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        progress: undefined,
-
-      });
-    }
-
-  })
   const total = (v) => {
     setamount(v.price[0])
-    console.log(amounts)
   }
 
 
@@ -66,9 +42,7 @@ const Card = ({ cart, setcart }) => {
       {istype ? <>
         <div className='product-body '>
 
-          <ToastContainer position="top-right" autoClose={1500} hideProgressBar={false} newestOnTop={false} closeOnClickrtl={false}
-            pauseOnFocusLoss pauseOnHover
-          />
+        
           <Payment amounts={amounts}/>
 
           <div className=''>
@@ -80,27 +54,8 @@ const Card = ({ cart, setcart }) => {
                  <div className=' container-fluid d-flex flex-md-row flex-column col-12   px-md-5 bg-body-secondary mt-1  position-relative '
                     key={value.id}>
 
-                    <div className='col-md-5 col-12   bg-white border     '>
+                    <Productimg value={value} cart={cart} setcart={setcart} total={total}/>
 
-                      <div className='p-sticky p-md-4 col-12  d-flex flex-column align-items-center '>
-                        <img className='productimage text-center   img-fluid mt-md-3 mt-1 '
-                          src={`/images/products/${[value.img]}`} alt='' />
-                        <div className='d-flex col-12 gap-2 mt-md-5 ms-md-4 flex-column flex-md-row   '>
-                          <div type='button' className='col-md-6  col-12 btn btn-lg
-                         btn-warning rounded-0  d-flex justify-content-center align-items-center '
-                            id="liveToastBtn" onClick={() => addtocart(value)}
-                          >
-                            <p className='text-center  mt-2 '>Add To Cart</p>
-                          </div>
-                          <div className='col-md-6 btn btn-lg rounded-0  buybutton d-flex justify-content-center 
-                               align-items-center' data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop"
-                            onClick={() => total(value)}  >
-                            <p className=' text-center mt-2 ' >Buy</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <div className='productd col-md-7 col-12  bg-white  '>
                       <div className='ms-md-4 mt-md-3 px-md-0 px-2'>
                         <div className=''>

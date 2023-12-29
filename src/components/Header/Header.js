@@ -22,18 +22,19 @@ const Header = ({ cart, setcart, user }) => {
     }
 
     useEffect(() => {
+        
         setsearchdata([])
         const filtterdata = () => {
             const data = productsdata.filter((v) => v.name.toLowerCase().includes(products.toLowerCase())).slice(0, 2)
             setsearchdata(data)
         }
         filtterdata();
-    
+       
     }, [products, productsdata])
 
     useEffect(() => {
         getproducts();
-        setsearchdata([]);
+        
     }, [])
 
 
@@ -108,10 +109,9 @@ const Header = ({ cart, setcart, user }) => {
                                 data-bs-toggle="modal" data-bs-target="#exampleModal">Create Account </p>
                         </div> :
                             <div className=' d-flex '>
-                                <p className=' text-white fs-md-5 fw-bold mt-3   btn ms-md-5 ms-0 fw-bold ' >
+                                <p className=' text-white fs-md-5 fw-bold mt-3   btn ms-md-5 ms-0 fw-bold  ' >
                                     {/* <img className='userlogo  rounded-1' src='/images/user.svg' alt='' /> */}
-                                    <i class="fa-solid fa-user-large" style={{ color: 'white' }}></i>
-                                    {user.username}</p>
+                                    <i class="fa-solid fa-user-large" style={{ color: 'white' }}></i> {user.username}</p>
                                 <p className="login btn text-white ms-md-4 h-50 fs-md-5 fw-bold mt-3 "
                                     onClick={(e)=>handellogout(e)}>Logout</p>
                             </div>

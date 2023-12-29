@@ -29,10 +29,9 @@ import { useNavigate } from 'react-router-dom';
                         </div> 
                         :
                             <div className='text-white d-flex flex-column align-items-center'>
-                                <img className='userlogo  rounded-1' src='/images/user.svg' alt='' />
+                                {/* <img className='userlogo  rounded-1' src='/images/user.svg' alt='' /> */}
                                 <p className='text-white  fs-md-5 fw-bold   btn   fw-bold ' >
-
-                                    {user.username}</p>
+                                <i class="fa-solid fa-user-large" style={{ color: 'white' }}></i> {user.username}</p>
                                 <p className="login btn text-white  ms-md-4 h-50  fw-bold  "
                                     onClick={logout}>Logout</p>
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Payment from '../Modals/Payment'
 const Cart = ({ cart, setcart }) => {
+
+  
   const [total, settotal] = useState(0)
 
   const navigate = useNavigate();
