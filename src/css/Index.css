@@ -213,7 +213,7 @@ body {
     min-height: 100vh;
 }
 .cart-b{
-height: 30vh !important;
+height: fit-content!important;
 }
 
 .product-body {
