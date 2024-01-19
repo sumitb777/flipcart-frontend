@@ -231,7 +231,7 @@ const Row = () => {
       </>
         : <>
 
-          <div className=' d-flex flex-column   justify-content-center  align-items-center ' style={{ height: '60vh' }}>
+          <div className=' d-flex flex-column   justify-content-center  align-items-center ' style={{ height: '80vh' }}>
             <div class="spinner-border  " role="status">
 
             </div>
