@@ -19,7 +19,7 @@ const Row = () => {
 
   const gettypesm = async () => {
     try {
-      let url = `http://localhost:3030/get-product-by-type/mobile`;
+      let url = `https://flipcart-backend.onrender.com/get-product-by-type/mobile`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypesm(data.result)
@@ -31,7 +31,7 @@ const Row = () => {
   }
   const gettypese = async () => {
     try {
-      let url = `http://localhost:3030/get-product-by-type/Electronics`;
+      let url = `https://flipcart-backend.onrender.com/get-product-by-type/Electronics`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypese(data.result)
@@ -45,7 +45,7 @@ const Row = () => {
   }
   const gettypesc = async () => {
     try {
-      let url = `http://localhost:3030/get-product-by-type/computer`;
+      let url = `https://flipcart-backend.onrender.com/get-product-by-type/computer`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypesc(data.result)
