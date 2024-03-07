@@ -1,13 +1,15 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import UserAccount from '../Modals/UserAccount'
 import TypeHeader from './TypeHeader';
 import CanvasMobile from './CanvasMobile';
+import { cartContext } from '../Context';
 
 
-const Header = ({ cart, setcart, user }) => {
+const Header = ({  user }) => {
     const Navigate = useNavigate();
+    const {cart}=useContext(cartContext)
     const [products, setproducts] = useState('');
     const [productsdata, setproductsdata] = useState([]);
     const [serchdata, setsearchdata] = useState([])
@@ -54,7 +56,6 @@ const Header = ({ cart, setcart, user }) => {
             <div className='col-12 bg-primary d-flex '   >
                 <div className=" d-flex col-12 col-lg-11 m-auto gap-md-2 gap-0  my-0 py-0 px-lg-5 d-flex    
                                 bg-primary bg-body-tertiary justify-content-md-between   align-items-center  ">
-
                     {/* input */}
                     <div className=' d-flex col-lg-7 col-md-6 col-12 justify-md-content-center align-items-center'>
                         <div className="btn ms-lg-5  "

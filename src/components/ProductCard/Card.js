@@ -1,13 +1,15 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import "react-toastify/dist/ReactToastify.css";
 import Payment from '../Modals/Payment';
 import Productimg from './Productimg';
-
+import { cartContext } from '../Context';
 // let keyid = 'rzp_test_RB0WElnRLezVJ5';
 
-const Card = ({ cart, setcart }) => {
+const Card = () => {
+  const {cart,setcart}=useContext(cartContext)
+
   const { id } = useParams();
   const [typedata, settypedata] = useState([]);
   const [amounts, setamount] = useState(0)
@@ -17,13 +19,13 @@ const Card = ({ cart, setcart }) => {
   useEffect(() => {
   const getcarddata = async () => {
     try {
-      let url = `https://flipcart-backend.onrender.com/get-product-by-id/${id}`;
+      let url = `http://localhost:3030/get-product-by-id/${id}`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypedata(data.result)
       setistype(true)
     } catch (error) {
-      alert("server error")
+      console.log("server error")
     }
   
   }
@@ -54,7 +56,8 @@ const Card = ({ cart, setcart }) => {
                  <div className=' container-fluid d-flex flex-md-row flex-column col-12   px-md-5 bg-body-secondary mt-1  position-relative '
                     key={value.id}>
 
-                    <Productimg value={value} cart={cart} setcart={setcart} total={total}/>
+                    <Productimg value={value}  total={total}/>
+
 
                     <div className='productd col-md-7 col-12  bg-white  '>
                       <div className='ms-md-4 mt-md-3 px-md-0 px-2'>
@@ -73,7 +76,7 @@ const Card = ({ cart, setcart }) => {
                           <p className='h5 card-title '>₹{value.price[0].toLocaleString()}</p>
                           <p className='h6 card-title text-d text-decoration-line-through  text-secondary'>
                             ₹{value.price[1].toLocaleString()}</p>
-                          <p className='h6 card-title text-success  '>{value.price[2]}</p>
+                          <p className='h6 card-title text-success  '>{value.price[2]}% Off</p>
                         </div>
                         <div className='mt-3'>
                           <p className='h5 '>Available offers </p>

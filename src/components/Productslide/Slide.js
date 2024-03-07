@@ -8,12 +8,12 @@ const Slide = () => {
     // const navigate = useNavigate();
     // const screen = window.innerWidth;
     // const ele = useRef();
-    const [ProductType, setProductType] = useState(["mobile", "Electronics", "computer"])
+    const [ProductType] = useState(["mobile", "Electronics", "computer"])
 
 
     return (
         <>
-            {Productdata ? <>
+              
 
                 {ProductType.map((v, index) => {
                     return (
@@ -22,19 +22,13 @@ const Slide = () => {
 
                                 <h3>Shop {v.toUpperCase()} </h3>
                             </div>
-                            <Productdata type={v} />
+                            <Productdata type={v} key={index}/>
 
                         </div>
                     )
                 })}
-            </>
-                : <>
-                    <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '80vh' }}>
-                        <div class="spinner-border  " role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                </>}
+            
+            
         </>
     )
 }

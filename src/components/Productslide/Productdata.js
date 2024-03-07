@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import typeapi from '../../Apis/typeapi';
 import { useNavigate } from 'react-router-dom';
+import { cartContext } from '../Context';
 
 const Productdata = ({ type }) => {
     const navigate = useNavigate();
@@ -8,15 +9,16 @@ const Productdata = ({ type }) => {
     const [isinfo, setisinfo] = useState(false)
     const element = useRef(null);
     const screen = window.innerWidth;
-
+    const {addcart} = useContext(cartContext)
 
     useEffect(() => {
         const getdata = () => {
             typeapi.typepapi(type).then(res => {
-                const result = res.data.result
+                console.log(res)
+
+                const result = res.data.result;
                 setproductdata(result)
                 setisinfo(true)
-                console.log(res)
 
             }
             ).catch((error) => {
@@ -52,25 +54,29 @@ const Productdata = ({ type }) => {
 
                         {productdata.map((value, index) => {
                             return (
-                                <div className='cardbox col-6 p-0   col-md-2 card d-flex  align-items-center  flex-nowrap bg-white 
-                                       border border-primary-subtle  border-2  justify-content-center btn' key={value.id}
+                                <div className='cardbox col-6   col-md-2 card d-flex  align-items-center  flex-nowrap bg-white 
+                                    position-relative   
+                                     border border-primary-subtle  border-2  justify-content-center btn' key={value.id}
 
                                     onClick={() => { navigate(`card/${value.id}`) }} >
-                                    <img className='card-img-top img-fluid  cardimg pt-md-2 mb-md-3 ' src={`images/products/${value.img}`} alt='' />
-                                    <p className='h6 card-title mt-1'>{value.name}</p>
-                                    <div className='d-flex align-items-center mt-1'>
+                                    <img className='card-img-top  cardimgh   ' src={`images/products/${value.img}`} alt='' />
+                                    <p className='h6 card-title '>{value.name}</p>
+                                    <div className='d-flex align-items-center '>
                                         <p className='h6 card-title py-0 px-md-2 rating  text-white   '>{value.rating[0]}
                                             <img className='ratingstar' src='/images/star.svg' alt='na' /> </p>
                                         <p className='mt-1' >{'('}{value.rating[1].toLocaleString()}{')'}</p>
 
                                     </div>
-                                    <div className='d-flex gap-1 '>
+                                    <div className='d-flex gap-1 mb-5 '>
                                         <p className='h6 card-title lh-1 '>₹{value.price[0].toLocaleString()}</p>
                                         <p className='h6 card-title text-d text-decoration-line-through lh-1  text-secondary'>
                                             ₹{value.price[1]}</p>
-                                        <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2].toLocaleString()}</p>
+                                        <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2]}% Off</p>
                                     </div>
-                                    <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}</p>
+                                    <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}% Off</p>
+                                    <div className='bg-warning col-12 pt-2 position-absolute bottom-0' onClick={() => addcart(value)}>
+                                        <p>Add To Cart</p>
+                                    </div>
                                 </div>
                             )
                         })}
@@ -79,7 +85,7 @@ const Productdata = ({ type }) => {
                 </div>
             </>
                 : <>
-                    <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '100vh' }}>
+                    <div className=' d-flex  justify-content-center  align-items-center ' style={{ height: '180vh' }}>
                         <div class="spinner-border  " role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>

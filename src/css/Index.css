@@ -55,10 +55,19 @@ input:focus {
     max-height: 50px !important;
     max-width: 40px;
 }
+.cardimgh{
+max-width: 70% !important;
+max-height: 240px;
+min-height: 210px;
+
+}
 
 .cardimg {
-    width: 60%;
-    height: 230px;
+    max-width: 70%;
+    height: 220px;
+}
+.linkimg-box{
+    height: 35vh;
 }
 
 .ratingstar {
@@ -113,8 +122,8 @@ body {
 
 .productimage {
     max-height: 55vh;
-    min-height: 40vh;
-    width: 60%;
+    min-width: 30vh;
+    
 }
 
 .offerimg {
@@ -135,17 +144,29 @@ body {
     height: 20px;
     width: 20px;
 }
+.filter-button{
+    text-decoration: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+   
+border: 0;
+}
 
 @media only screen and (max-width:700px) {
+    .filter-button{
+        border: 2px solid black;
+    }
 
 
     .cardimg {
-        width: 100px;
-        height: 150px;
+        padding-top: 10px;
+        width: 150px;
+        height: 250px;
     }
 
     .cardbox {
         width: 192px;
+        /* height: 80vh !important; */
     }
 
     .carousel-img {
@@ -174,7 +195,7 @@ body {
 
     right: 0;
     z-index: 99;
-    top: 43%;
+    top: 40%;
     height: 20%;
     background-color: #fcf6f665;
 
@@ -212,9 +233,7 @@ body {
 .cart-block {
     min-height: 100vh;
 }
-.cart-b{
-height: fit-content!important;
-}
+
 
 .product-body {
     min-height: 80vh;
@@ -268,4 +287,15 @@ height: fit-content!important;
     position: sticky !important;
     top: 0 !important;
 
+}
+.cart-item{
+    height:fit-content;
+}
+input[type=checkbox],
+input[type=radio]{
+    accent-color: rgb(129, 125, 125) !important;
+  }
+
+.cart-img{
+    max-height: 150px !important;
 }

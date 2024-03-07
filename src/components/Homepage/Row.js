@@ -1,6 +1,10 @@
-import React, { useRef } from 'react'
-import {  useEffect, useState } from 'react'
+import React, { useContext, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { cartContext } from '../Context'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Row = () => {
   const screen = window.innerWidth;
   let navigate = useNavigate();
@@ -8,13 +12,14 @@ const Row = () => {
   const [typese, settypese] = useState([])
   const [isinfo, setisinfo] = useState(false)
   const [typesc, settypesc] = useState([])
+  const { addcart } = useContext(cartContext)
   const ele1 = useRef();
   const ele2 = useRef();
   const ele3 = useRef();
 
   const gettypesm = async () => {
     try {
-      let url = `https://flipcart-backend.onrender.com/get-product-by-type/mobile`;
+      let url = `http://localhost:3030/get-product-by-type/mobile`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypesm(data.result)
@@ -26,7 +31,7 @@ const Row = () => {
   }
   const gettypese = async () => {
     try {
-      let url = `https://flipcart-backend.onrender.com/get-product-by-type/Electronics`;
+      let url = `http://localhost:3030/get-product-by-type/Electronics`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypese(data.result)
@@ -34,21 +39,20 @@ const Row = () => {
       setisinfo(true)
 
     } catch (error) {
-      alert("Plese wait for server to start")
+      console.log("Plese wait for server to start")
     }
 
   }
   const gettypesc = async () => {
     try {
-      let url = `https://flipcart-backend.onrender.com/get-product-by-type/computer`;
+      let url = `http://localhost:3030/get-product-by-type/computer`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypesc(data.result)
 
-      console.log(settypesc)
 
     } catch (error) {
-      alert("Plese wait for server to start")
+      console.log("Plese wait for server to start")
     }
 
   }
@@ -79,6 +83,7 @@ const Row = () => {
     <>
 
       {isinfo ? <>
+        <ToastContainer position="top-right" autoClose={1500} hideProgressBar={false} closeOnClickrtl={false} />
 
 
         < div className='roduct-body '>
@@ -103,26 +108,29 @@ const Row = () => {
 
                 {typesm.map((value, index) => {
                   return (
-                    <div className='cardbox col-6 p-0   col-md-2 card d-flex  align-items-center  flex-nowrap bg-white 
-                   border border-primary-subtle  border-2  justify-content-center btn' key={value.id}
-                      // onClick={() => { navigate(`/card/${value.id}`) }}
-                      onClick={() => { navigate(`card/${value.id}`) }}
-                    >
-                      <img className='card-img-top img-fluid  cardimg pt-md-2 mb-md-3 ' src={`images/products/${value.img}`} alt='' />
-                      <p className='h6 card-title mt-1'>{value.name}</p>
+                    <div className='cardbox col-6 p-0 postion-relative   col-md-2 card d-flex  align-items-center  flex-nowrap bg-white 
+                   border border-primary-subtle  border-2  justify-content-center btn' key={value.id}     >
+                      <img className='card-img-top img-fluid  cardimgh pt-md-2 pb-md-3 ' src={`images/products/${value.img}`}
+                        alt='' onClick={() => { navigate(`card/${value.id}`) }}
+                      />
+                      <p className='h6 card-title pt-1'onClick={() => { navigate(`card/${value.id}`) }}>{value.name}  </p>
                       <div className='d-flex align-items-center mt-1'>
                         <p className='h6 card-title py-0 px-md-2 rating  text-white   '>{value.rating[0]}
                           <img className='ratingstar' src='/images/star.svg' alt='na' /> </p>
                         <p className='mt-1' >{'('}{numberWithCommas(value.rating[1])}{')'}</p>
                       </div>
-                      <div className='d-flex gap-1 '>
+                      <div className='d-flex gap-1 mb-5'>
                         <p className='h6 card-title lh-1 '>₹{numberWithCommas(value.price[0])}</p>
                         <p className='h6 card-title text-d text-decoration-line-through lh-1  text-secondary'>
                           ₹{numberWithCommas(value.price[1])}</p>
-                        <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2]}</p>
+                        <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2]}% Off</p>
                       </div>
-                      <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}</p>
+                      <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}% Off</p>
+                      <div className='bg-warning col-12 pt-2 bottom-0 position-absolute ' onClick={() => addcart(value)}>
+                        <p>Add To Cart</p>
+                      </div>
                     </div>
+
                   )
                 })}
               </div>
@@ -151,28 +159,30 @@ const Row = () => {
 
                   return (
 
-                    <div className='cardbox col-6 g-0   p-0 col-md-2 card d-flex  accordion border-primary-subtle bg-white
-                align-items-center  flex-nowrap  border  border-2 justify-content-center btn ' key={value.id}
-                      // onClick={() => { navigate(`/card/${value.id}`) }}
-                      onClick={() => { navigate(`card/${value.id}`) }}
+                    <div className='cardbox col-6 g-0 position-relative  p-0 col-md-2 card d-flex  accordion border-primary-subtle bg-white
+                        align-items-center  flex-nowrap  border  border-2 justify-content-center btn ' key={value.id}
+                    // onClick={() => { navigate(`/card/${value.id}`) }}
                     >
 
-                      <img className='card-img-top cardimg img-fluid  ' src={`images/products/${value.img}`} alt='' />
-                      <p className='h6 card-title mt-1 '>{value.name}</p>
+                      <img className='card-img-top cardimgh img-fluid  ' src={`images/products/${value.img}`} alt=''
+                        onClick={() => { navigate(`card/${value.id}`) }} />
+                      <p className='h6 card-title mt-1 ' onClick={() => { navigate(`card/${value.id}`) }}>{value.name}</p>
 
                       <div className='d-flex align-items-center mt-1  '>
                         <p className='h6 card-title py-0 px-2 rating  text-white '>{value.rating[0]}
-                          <img className='ratingstar' src='/images/star.svg'alt='' /> </p>
+                          <img className='ratingstar' src='/images/star.svg' alt='' /> </p>
                         <p className='mt-1'>{'('}{value.rating[1].toLocaleString()}{')'}</p>
                       </div>
-                      <div className='d-flex gap-1  '>
+                      <div className='d-flex gap-1 mb-5 '>
                         <p className='h6 card-title lh-1 '>₹{numberWithCommas(value.price[0])}</p>
                         <p className='h6 card-title text-d text-decoration-line-through lh-1  text-secondary'>
                           ₹{value.price[1].toLocaleString()}</p>
-                        <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2]}</p>
+                        <p className='h6 card-title text-success d-md-block  d-none lh-1 '>{value.price[2]}% Off</p>
                       </div>
-                      <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}</p>
-
+                      <p className='h6 card-title text-success d-block d-md-none lh-1 '>{value.price[2]}% Off</p>
+                      <div className='bg-warning col-12 pt-2 position-absolute bottom-0' onClick={() => addcart(value)}>
+                        <p>Add To Cart</p>
+                      </div>
 
                     </div>
 
@@ -202,23 +212,27 @@ const Row = () => {
 
                   return (
 
-                    <div className='cardbox col-6 g-0   col-md-2 card d-flex  bg-white
+                    <div className='cardbox col-6 g-0 position-relative   col-md-2 card d-flex  bg-white
                          border-primary-subtle  align-items-center  flex-nowrap   border  border-2
                          justify-content-center btn ' key={value.id}
                       onClick={() => { navigate(`card/${value.id}`) }}>
 
-                      <img className='card-img-top cardimg ' src={`images/products/${value.img}`} alt='' />
+                      <img className='card-img-top cardimgh ' src={`images/products/${value.img}`} alt='' />
                       <p className='h6 card-title mt-1  '>{value.name}</p>
                       <div className='d-flex align-items-center mt-1'>
                         <p className='h6 card-title py-0 px-2 rating  text-white'>{value.rating[0]}
                           <img className='ratingstar' src='/images/star.svg' alt='' /> </p>
                         <p className='mt-1'>{'('}{value.rating[1]}{')'}</p>
                       </div>
-                      <div className='d-flex gap-1 '>
+                      <div className='d-flex gap-1 mb-4 '>
                         <p className='h6 card-title lh-1 '>₹{numberWithCommas(value.price[0])}</p>
                         <p className='h6 card-title text-d text-decoration-line-through lh-1  text-secondary'>
                           ₹{numberWithCommas(value.price[1])}</p>
-                        <p className='h6 card-title text-success  d-md-block  d-none lh-1  '>{value.price[2]}</p>
+                      </div>
+                      <p className='h6 card-title text-success  d-md-block  d-none lh-1  '>{value.price[2]}% Off</p>
+
+                      <div className='bg-warning col-12 pt-2 position-absolute bottom-0' onClick={() => addcart(value)}>
+                        <p>Add To Cart</p>
                       </div>
                     </div>
 
@@ -231,7 +245,7 @@ const Row = () => {
       </>
         : <>
 
-          <div className=' d-flex flex-column   justify-content-center  align-items-center ' style={{ height: '80vh' }}>
+          <div className=' d-flex flex-column   justify-content-center  align-items-center ' style={{ height: '60vh' }}>
             <div class="spinner-border  " role="status">
 
             </div>

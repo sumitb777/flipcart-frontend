@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Payment from '../Modals/Payment'
-const Cart = ({ cart, setcart }) => {
-
+import { cartContext } from '../Context'
+const Cart = ({ }) => {
+const{cart,setcart,setaddedtocart}=useContext(cartContext)
   
   const [total, settotal] = useState(0)
 
   const navigate = useNavigate();
 
-  // cart.map((v) => {
-  //   return 
-  // })
+
 
   useEffect(() => {
     let totals = 0
@@ -32,6 +31,7 @@ const Cart = ({ cart, setcart }) => {
   const removeitem = (i) => {
     const updatedCart = cart.filter(item => item.id !== i);
     setcart(updatedCart)
+    setaddedtocart('Add To Cart')
   }
 
   return (
@@ -57,11 +57,11 @@ const Cart = ({ cart, setcart }) => {
 
               return (
 
-                <div className=' mb-4 cart-b  d-flex border border-2 shadow col-md-10 col-12  py-5  bg-white' key={value.id}
+                <div className=' mb-4 cart-b  cart-item d-flex border border-2 shadow col-md-10 col-12  py-5  bg-white' key={value.id}
                 >
                   <div className='col-md-3 btn col-3 ' >
 
-                    <img alt='' className=' img-fluid  h-100  ' src={`/images/products/${value.img}`}></img>
+                    <img alt='cart-img' className=' img-fluid  cart-img' src={`/images/products/${value.img}`}></img>
 
                   </div>
                   <div className='col-md-7 col-6 btn' onClick={() => navigate(`/card/${value.id}`)} >
@@ -74,7 +74,7 @@ const Cart = ({ cart, setcart }) => {
                     <div className='d-flex gap-1 align-items-center '>
                       <p className='h5 card-title '>₹{value.price[0].toLocaleString()}</p>
                       <p className='h6 card-title text-d text-decoration-line-through  text-secondary'>{value.price[1].toLocaleString()}</p>
-                      <p className='h6 card-title text-success  '>{value.price[2]}</p>
+                      <p className='h6 card-title text-success  '>{value.price[2]}% Off</p>
                     </div>
                     <div>
 

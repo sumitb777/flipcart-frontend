@@ -8,6 +8,7 @@ import Links from './components/ProductType/Links';
 import { useState } from 'react';
 import Cart from './components/Cart/Cart';
 import { jwtDecode } from 'jwt-decode';
+import Context from './components/Context';
 
 
 function App() {
@@ -25,21 +26,21 @@ function App() {
   }
   console.log(userdata())
   let [user, setuser] = useState(userdata());
-  const [cart, setcart] = useState([]);
+  
   return (
 
     <div className='body container-fluid col-12 g-0'>
-      <Header cart={cart} setcart={setcart} user={user} />
+      <Header  user={user} />
 
       <Routes>
-        <Route path='/' element={<Homepage cart={cart} setcart={setcart} user={user} />} />
-        <Route path='card/:id' element={<Card cart={cart} setcart={setcart} user={user} />} />
-        <Route path='link/:type' element={<Links cart={cart} setcart={setcart} user={user} />} />
-        <Route path='/cart/' element={<Cart cart={cart} setcart={setcart} user={user} />} />
+        <Route path='/' element={<Homepage  user={user} />} />
+        <Route path='card/:id' element={<Card  user={user} />} />
+        <Route path='link/:type' element={<Links  user={user} />} />
+        <Route path='/cart/' element={<Cart  user={user} />} />
 
       </Routes>
       <Footer />
-
+      
     </div>
 
   );
