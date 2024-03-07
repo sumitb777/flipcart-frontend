@@ -46,7 +46,7 @@ const Links = () => {
     // 
     try {
       setistype(false)
-      let urls = `http://localhost:3030/getfiltertype`
+      let urls = `https://flipcart-backend.onrender.com/getfiltertype`
 
       let { data } = await axios.post(urls, { ...filterData })
       // console.log(filterData)
