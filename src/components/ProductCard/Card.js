@@ -19,7 +19,7 @@ const Card = () => {
   useEffect(() => {
   const getcarddata = async () => {
     try {
-      let url = `http://localhost:3030/get-product-by-id/${id}`;
+      let url = `https://flipcart-backend.onrender.com/get-product-by-id/${id}`;
       let response = await fetch(url, { method: 'GET' });
       let data = await response.json()
       settypedata(data.result)
