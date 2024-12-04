@@ -7,8 +7,5 @@ const typepapi = async (type) =>
     
         await axios.get(url + type);
 
-    
-
-
 
 export default { typepapi }

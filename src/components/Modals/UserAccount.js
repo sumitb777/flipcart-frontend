@@ -75,7 +75,7 @@ const UserAccount = () => {
                                 />
                             </div>
                             <div class="col-auto">
-                                <label for="inputPassword4" class="visually-hidden">Password</label>
+                                <label for="inputPassword4" class="">Password</label>
                                 <input type="password" class="form-control" id="inputPassword4"
                                     placeholder="Password" value={userdata.password}
                                     onChange={(event) => { setuserdata({ ...userdata, password: event.target.value }) }} />
@@ -113,7 +113,7 @@ const UserAccount = () => {
                                 />
                             </div>
                             <div class="col-auto">
-                                <label for="inputPassword2" class="visually-hidden">Password</label>
+                                <label for="inputPassword2" class=" ">Password</label>
                                 <input type="password" class="form-control" id="inputPassword2"required
                                     placeholder="Password" value={logindata.password}
                                     onChange={(event) => { setlogindata({ ...logindata, password: event.target.value }) }} />
